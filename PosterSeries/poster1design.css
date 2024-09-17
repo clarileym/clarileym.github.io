@@ -1,0 +1,50 @@
+body{
+    background:#efefef;
+    margin: 0px;
+  }
+  
+  .container{ 
+    background-image: url(../Images/Aurora@2000x1270-1.jpg) ;
+    background-repeat: no-repeat;
+    background-position:30%;
+    background-size: cover;
+    position:relative;
+    
+    margin: 10px auto; /* 10px on the top and bottom, "auto" to center it on either side */
+    padding:20px;
+    
+    height:calc(100vh - 40px - 20px); /* 100% of the viewport height, minus 2x padding, minus 2x the margin. */
+    width:60vh; /* This is in "vh" units because we always want it to be relative to the height. In this case, it's a 3:5 ratio (60:100) */
+  }
+  .title{
+    display: inline-block;
+    color: white;
+    font-size: 15vh;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1px;
+    top:0px;
+    left:15px;
+    position: absolute;
+  }
+  .album{
+    color:white;
+    display: inline-block;
+    position: absolute;
+    text-align: left;
+    z-index: 3;
+    height:60vh;
+    margin: 0px auto;
+
+    top: 16vh;
+    left:2vw;
+    font-size:4vh;
+
+    font-family: "trajan-pro-3", serif;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 21px;
+
+  }
+  

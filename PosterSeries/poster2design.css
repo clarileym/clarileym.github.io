@@ -1,0 +1,62 @@
+body{
+    background:#efefef;
+    margin: 0px;
+  }
+  .title{
+    display: inline-block;
+    color: white;
+    font-size: 30vh;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1px;
+    top:0px;
+    left: 40px;
+    position: absolute;
+    z-index: 2;
+  }
+  
+  .container{
+    background-image: url(../Images/pexels-anete-lusina-6331082.jpg) ;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size:cover;
+    position:relative;
+    
+    margin: 10px auto; /* 10px on the top and bottom, "auto" to center it on either side */
+    padding:20px;
+    
+    
+    height:60vw; /* 100% of the viewport height, minus 2x padding, minus 2x the margin. */
+    width:calc(100vw - 40px - 20px); /* This is in "vh" units because we always want it to be relative to the height. In this case, it's a 3:5 ratio (60:100) */
+}
+.container heart{
+    width:380px;
+    position: absolute;
+    right:0vh;
+    bottom:0vh;
+}
+.heart img{ 
+    position: absolute;
+    right:1vw;
+    bottom:0vh;
+    height: 80vh;
+}
+.album{
+    color:white;
+    display: inline-block;
+    width: 32vw;
+    position: absolute;
+    text-align: left;
+    z-index: 2;
+    margin: 0px;
+
+    top: 35vh;
+    left:3vw;
+    font-size:9vh;
+    line-height:80px;
+
+    font-family: "trajan-pro-3", serif;
+    font-weight: 300;
+    font-style: normal;
+  }

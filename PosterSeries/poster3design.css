@@ -1,0 +1,97 @@
+body{
+    background:#efefef;
+    margin: 0px;
+  }
+
+  .container{
+    position:relative;
+    overflow: hidden;
+    
+    margin: 0px auto;
+
+    top:-30vh;
+    height: 70vw;
+    width: 70vw;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+  .back{
+    background: url(../Images/pexels-anete-lusina-6331082.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size:cover;
+    position:absolute;
+    
+    margin: auto;
+
+    height: 100vw;
+    width: 100vw;
+    transform: rotate(-45deg);
+    z-index: 1;
+  }
+
+  .title{
+    display: inline-block;
+    text-align: center;
+    width: 100vw;
+
+    color: white;
+    font-size: 15vh;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1px;
+  }
+
+  .container h1{
+    padding: 10px;
+    top:120px;
+    left:-35px;
+    display:inline-block;
+    transform: rotate(-90deg);
+    position:absolute;
+  }
+  .container heart{
+    width:380px;
+    position: absolute;
+    right:0vh;
+    bottom:0vh;
+    transform: rotate(-45deg);
+}
+.heart img{ 
+    position: absolute;
+    right:1vw;
+    bottom:20vh;
+    height: 99vh;
+    transform: rotate(-45deg);
+    z-index: 4;
+}
+.container album{
+  width:400px;
+  height:370px;
+  position: absolute;
+  left:0vh;
+  bottom:0vh;
+  transform: rotate(-45deg);
+  z-index: 3;
+}
+  .album{
+    color:white;
+    display: inline-block;
+    width: 40vw;
+    position: absolute;
+    text-align: left;
+    z-index: 3;
+    margin: 0px;
+    transform: rotate(-45deg);
+
+    top: 35vh;
+    left:8vw; 
+    font-size:9vh;
+    line-height:80px;
+
+    font-family: "trajan-pro-3", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  

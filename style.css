@@ -30,3 +30,13 @@ h2{
     line-height: 3;
     color:antiquewhite;
 }
+.sublist ul li{
+    line-height:1;
+    display:inline-block;
+    margin-right:20px;
+
+} 
+.sublist{
+    line-height: 1px;
+    margin-bottom:1px;
+}
