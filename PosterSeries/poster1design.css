@@ -19,13 +19,13 @@ body{
   .title{
     display: inline-block;
     color: white;
-    font-size: 15vh;
+    font-size: 18vh;
     font-family: "Amatic SC", sans-serif;
     font-weight: 700;
     font-style: normal;
     line-height: 1px;
-    top:0px;
-    left:15px;
+    top:8vh;
+    left:1vw;
     position: absolute;
   }
   .album{
@@ -34,17 +34,50 @@ body{
     position: absolute;
     text-align: left;
     z-index: 3;
-    height:60vh;
+    width:40vh;
     margin: 0px auto;
 
-    top: 16vh;
-    left:2vw;
+    top: 1vh;
+    left:1vw;
+    font-size:3vh;
+
+    font-family: "trajan-pro-3", serif;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 4vh;
+  }
+  .info{
+    color:white;
+    display: inline-block;
+    position: absolute;
+    text-align: left;
+    z-index: 3;
+    width:18vw;
+    margin: 0px auto;
+
+    bottom: 2vh;
+    left:1vw;
     font-size:4vh;
 
     font-family: "trajan-pro-3", serif;
     font-weight: 300;
     font-style: normal;
-    line-height: 21px;
+  }
+  .date{
+    color:bisque;
+    display: inline-block;
+    position: absolute;
+    text-align: left;
+    z-index: 3;
+    width:20vw;
+    margin: 0px auto;
 
+    bottom: 38vh;
+    left:1vw;
+    font-size:6vh;
+
+    font-family: "trajan-pro-3", serif;
+    font-weight: 600;
+    font-style: normal;
   }
   

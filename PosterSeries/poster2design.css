@@ -1,19 +1,7 @@
 body{
     background:#efefef;
-    margin: 0px;
-  }
-  .title{
-    display: inline-block;
-    color: white;
-    font-size: 30vh;
-    font-family: "Amatic SC", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 1px;
-    top:0px;
-    left: 40px;
-    position: absolute;
-    z-index: 2;
+    max-height: 100vh;
+    margin: 10px auto;
   }
   
   .container{
@@ -21,42 +9,99 @@ body{
     background-repeat: no-repeat;
     background-position: top;
     background-size:cover;
-    position:relative;
+    position:fixed;
     
-    margin: 10px auto; /* 10px on the top and bottom, "auto" to center it on either side */
-    padding:20px;
+    margin: 0px auto; /* 10px on the top and bottom, "auto" to center it on either side */
+  
+    height:95vh;
+    width:100vw;
+}
+.title{
+  display: inline-block;
+  color: white;
+  font-size: 35vh;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1px;
+  top:20vh;
+  left: 2vw;
+  position: absolute;
+  z-index: 2;
+}
+.heart{
+  background-image: url(../Images/aurora-heart.png) ;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size:contain;
+    position:absolute;
     
-    
-    height:60vw; /* 100% of the viewport height, minus 2x padding, minus 2x the margin. */
-    width:calc(100vw - 40px - 20px); /* This is in "vh" units because we always want it to be relative to the height. In this case, it's a 3:5 ratio (60:100) */
+    height:80vh;
+    width:60vh;
+    bottom:0vw;
+    right:4vw;
 }
-.container heart{
-    width:380px;
-    position: absolute;
-    right:0vh;
-    bottom:0vh;
-}
-.heart img{ 
-    position: absolute;
-    right:1vw;
-    bottom:0vh;
-    height: 80vh;
-}
+
 .album{
     color:white;
     display: inline-block;
-    width: 32vw;
+    width: 100vw;
     position: absolute;
     text-align: left;
     z-index: 2;
     margin: 0px;
 
-    top: 35vh;
-    left:3vw;
-    font-size:9vh;
-    line-height:80px;
+    top: 0vh;
+    left:2vw;
+    font-size:5vh;
+    line-height:6vh;
 
     font-family: "trajan-pro-3", serif;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
+  }
+
+  .data{
+    display:inline-block;
+    position: absolute;
+
+    width:80vw;
+    height:20vh;
+    line-height: 10vh;
+
+    bottom: 5px;
+    left:2vw;
+
+    z-index: 4;
+  }
+  
+  .info{
+    display: inline-block;
+    position:absolute;
+    color:white;
+   
+    height:20vh;
+
+    font-size:5vh;
+    font-family: "trajan-pro-3", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .date{
+    text-align:left;
+    margin-right: 10vw;
+    padding-right: 12vw;
+    width:30vw;
+    line-height:5vh;
+    position:absolute;
+    
+  }
+  .location{
+    text-align: right;
+    margin-left:10vw;
+    padding-left: 12vw;
+    width:40vw;
+    line-height:5vh;
+    position: absolute;
+    
   }

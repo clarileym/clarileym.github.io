@@ -1,97 +1,136 @@
 body{
     background:#efefef;
-    margin: 0px;
+    margin: 20vh auto;
+    height:fit-content;
+    width:fit-content;
   }
 
   .container{
-    position:relative;
-    overflow: hidden;
-    
-    margin: 0px auto;
-
-    top:-30vh;
-    height: 70vw;
-    width: 70vw;
-    transform: rotate(45deg);
-    z-index: -1;
+    height:95vh;
+    width:95vh;
+    transform:rotate(-45deg);
+    position: relative;
   }
-  .back{
+.back{
     background: url(../Images/pexels-anete-lusina-6331082.jpg);
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: center;
     background-size:cover;
-    position:absolute;
-    
-    margin: auto;
-
-    height: 100vw;
-    width: 100vw;
-    transform: rotate(-45deg);
-    z-index: 1;
-  }
-
-  .title{
+    position:fixed;
     display: inline-block;
+   
+    height: 95vh;
+    width: 95vh;
+}
+
+.heart{
+    background-image: url(../Images/aurora-heart.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size:cover;    
+    
+
+    height:74vh;
+    width:40vh;
+
+    bottom:0vw;
+    right:18vh;
+
+    display: inline-block;
+    position: fixed;
+    z-index: 2;
+}
+img{
+  display: inline-block;
+  position:absolute;
+  transform: rotate(45deg);
+  
+  bottom:-3vh;
+  right:39vh;
+  transform:scale(1.5) rotate(45deg);
+  z-index: 2;
+}
+.container h1{
+  top:-2vh;
+  right:36vh;
+
+  width:fit-content;
+
+  display:inline-block;
+  position:absolute;
+  z-index: 4;
+}
+.container h2{
+    bottom:68vh;
+    right:-1vh;
+    width:90vh;
+    font-weight:400;
+  
+    display:inline-block;
+    position:absolute;
+    z-index: 4;
+}
+  .title{
     text-align: center;
-    width: 100vw;
 
     color: white;
-    font-size: 15vh;
+    font-size: 25vh;
     font-family: "Amatic SC", sans-serif;
     font-weight: 700;
     font-style: normal;
     line-height: 1px;
-  }
-
-  .container h1{
-    padding: 10px;
-    top:120px;
-    left:-35px;
-    display:inline-block;
-    transform: rotate(-90deg);
-    position:absolute;
-  }
-  .container heart{
-    width:380px;
-    position: absolute;
-    right:0vh;
-    bottom:0vh;
-    transform: rotate(-45deg);
-}
-.heart img{ 
-    position: absolute;
-    right:1vw;
-    bottom:20vh;
-    height: 99vh;
-    transform: rotate(-45deg);
     z-index: 4;
-}
-.container album{
-  width:400px;
-  height:370px;
-  position: absolute;
-  left:0vh;
-  bottom:0vh;
-  transform: rotate(-45deg);
-  z-index: 3;
-}
-  .album{
+  }
+ .album{
     color:white;
-    display: inline-block;
-    width: 40vw;
-    position: absolute;
     text-align: left;
-    z-index: 3;
-    margin: 0px;
-    transform: rotate(-45deg);
 
-    top: 35vh;
-    left:8vw; 
-    font-size:9vh;
-    line-height:80px;
+    font-size:5vh;
+    line-height:9vh;
 
     font-family: "trajan-pro-3", serif;
-    font-weight: 300;
+    font-weight: 400;
+    font-style: normal;
+    transform: rotate(90deg);
+    transform-origin: bottom left;
+    z-index: 4;
+ }
+  
+  
+  .info{
+    position:absolute;
+    color:white;
+
+    font-size:5vh;
+    font-family: "trajan-pro-3", serif;
+    font-weight: 500;
     font-style: normal;
   }
+  .date{
+    text-align:left;
+    margin-right: 0vw;
+    line-height:1vh;
+    position:absolute;
+
+    left: 3vh;
+    bottom: 16vh;
+
+    font-size: 9vh;
+    transform: rotate(45deg);
+    
+  }
+  .location{
+    text-align: center;
+    margin-left:0vw;
+    line-height:6vh;
+    position: absolute;
+
+    left: 5vh;
+    top: 60vh;
+    transform: rotate(45deg);
+    
+  }
+
+
+
   
