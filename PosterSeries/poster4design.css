@@ -1,0 +1,128 @@
+body{
+    background-color:antiquewhite;
+}
+
+ .container{
+    height:100vh;
+    width:100vh;
+    margin: 10px auto;
+    padding:20px;
+    top: 20vh;
+    
+    position: relative;
+    transform:rotate(-45deg);
+  
+
+  }
+.back{
+    background: url(../Images/bluebackground.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    position:absolute;
+   
+    height: 100vh;
+    width: 100vh;
+}
+
+img{
+  display: inline-block;
+  position:absolute;
+  transform: rotate(45deg);
+  
+  bottom:-3vh;
+  right:39vh;
+  transform:scale(1.5) rotate(45deg);
+  z-index: 2;
+}
+.album h2{
+    position: absolute;
+    display: inline-block;
+
+    width:70vh;
+    height:fit-content;
+    right:5vh;
+    bottom:-15vh;
+
+    color:white;
+    text-align: right;
+    font-size:5vh;
+    line-height:9vh;
+
+    font-family: "trajan-pro-3", serif;
+    font-weight: 400;
+    font-style: normal;
+    transform: rotate(90deg);
+    transform-origin: top right;
+    z-index: 6;
+}
+  .title{
+    text-align: center;
+
+    color: white;
+    font-size: 35vh;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 0vh;
+
+    top:-5vh;
+    width:100vh;
+  
+    display:inline-block;
+    position:absolute;
+    z-index: 6;
+  }
+  .heart{
+    background-image: url(../Images/aurora-heart.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size:cover;    
+    
+
+    height:73vh;
+    width:39vh;
+
+    bottom:2.5vh;
+    right:21vh;
+
+    display: inline-block;
+    position: absolute;
+}
+
+  .info{
+    position:absolute;
+    color:white;
+
+    font-size:5vh;
+    font-family: "trajan-pro-3", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .date{
+    text-align:left;
+    line-height:1vh;
+    position:absolute;
+
+    left: 9vh;
+    bottom: 21vh;
+
+    font-size: 9vh;
+    transform: rotate(45deg);
+    
+  }
+  .location{
+    text-align: center;
+    line-height:6vh;
+    position: absolute;
+
+    left: 12vh;
+    bottom: 46vh;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+    
+  }
+
+
+
+  
