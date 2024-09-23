@@ -62,7 +62,6 @@ body{
     transform-origin: top right;
     z-index: 6;
     pointer-events:all;
-    transition: 1500ms;
 }
 .album h2:hover{
     color:black;
