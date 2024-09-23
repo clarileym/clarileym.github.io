@@ -1,127 +1,226 @@
 body{
-    background-color:antiquewhite;
+  background-color:antiquewhite;
+  margin:0 0;
 }
 
- .container{
-    height:100vh;
-    width:100vh;
-    margin: 10px auto;
-    padding:20px;
-    top: 20vh;
-    
-    position: relative;
-    transform:rotate(-45deg);
+.container{
+  height:100vh;
+  width:100vh;
+  margin: 10px auto;
+  padding:20px;
+  top: 27vh;
   
-
-  }
-.back{
-    background: url(../Images/bluebackground.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:cover;
-    position:absolute;
-   
-    height: 100vh;
-    width: 100vh;
+  position: relative;
+  transform:rotate(-45deg);
 }
-
 .heart{
-    background-image: url(../Images/aurora-heart.png);
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size:cover;    
-    
-
-    height:85vh;
-    width:46vh;
-
-    bottom:2vh;
-    right:21vh;
-
-    display: inline-block;
-    position: absolute;
-}
-img{
-  display: inline-block;
-  position:absolute;
-  transform: rotate(45deg);
+  background-image: url(../Images/aurora-heart.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size:cover;    
   
-  bottom:-3vh;
-  right:39vh;
-  transform:scale(1.5) rotate(45deg);
-  z-index: 2;
+
+  height:73vh;
+  width:39vh;
+
+  bottom:2.5vh;
+  right:21vh;
+
+  display: inline-block;
+  position: absolute;
+  
+}
+.back{
+  background: url(../Images/vertbackground.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  position:absolute;
+ 
+  height: 100vh;
+  width: 100vh;
+ 
 }
 .album h2{
-    position: absolute;
-    display: inline-block;
+  position: absolute;
+  display: inline-block;
 
-    width:95vh;
-    height:fit-content;
-    right:6vh;
-    bottom:-21vh;
+  width:70vh;
+  height:fit-content;
+  right:5vh;
+  bottom:-15vh;
 
-    color:white;
-    text-align: left;
-    font-size:7vh;
-    line-height:9vh;
+  color:white;
+  text-align: right;
+  font-size:5vh;
+  line-height:9vh;
 
-    font-family: "trajan-pro-3", serif;
-    font-weight: 400;
-    font-style: normal;
-    transform: rotate(90deg);
-    transform-origin: top right;
+  font-family: "trajan-pro-3", serif;
+  font-weight: 400;
+  font-style: normal;
+  transform: rotate(90deg);
+  transform-origin: top right;
+  z-index: 6;
+  transition: 1500ms;
 }
-  .title{
-    text-align: center;
+.album h2:hover{
+  color:black;
+  transition: 1500ms;
+}
+.title{
+  text-align: center;
 
-    color: white;
-    font-size: 25vh;
-    font-family: "Amatic SC", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 0vh;
+  color: white;
+  font-size: 35vh;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 0vh;
 
-    top:0vh;
-    left:6vh;
-    width:fit-content;
-  
-    display:inline-block;
-    position:absolute;
-  }
+  top:18vh;
+  width:100vh;
 
-  .info{
-    position:absolute;
-    color:white;
+  display:inline-block;
+  position:absolute;
+  transition: 1500ms;
+  z-index: 6;
+}
+.container:hover ~ .tracklist-left{
+  transition: 1500ms;
+  opacity: 1;
+}
+.container:hover ~ .tracklist-right{
+  transition: 1500ms;
+  opacity: 1;
+}
+.container:hover ~ .tracklist{
+  transition: 1500ms;
+  opacity: 1;
+}
+.tracklist{
+  text-align: center;
+  font-size: 3vw;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  top:1vh;
+  color:rgb(42, 102, 88);
+  position:absolute;
+  width: 100vw;
+  opacity: 0;
+  transition: 1000ms;
+ 
+}
+.tracklist-left{
+  position: absolute;
+  width: 37vw;
+  display: inline-block;
+  top: 3vh;
+  left: 2vh;
+  text-align: left;
+  opacity: 0;
+  transition: 1000ms;
+}
+.left{
+  display: inline-block;
+  height: 2vw;
+  width:21vw;
+  margin-bottom: 2vw;
+  color:rgb(42, 102, 88);
+  font-size: 3vw;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.tracklist-right{
+  position: absolute;
+  width: 20vw;
+  display: inline-block;
+  top: 3vh;
+  right: 2vw;
+  text-align: right;
+  opacity: 0;
+  transition: 1000ms;
+}
+.right{
+  display: inline-block;
+  text-align: right;
+  height: 2vw;
+  width:20vw;
+  margin-bottom: 2vw;
+  color:rgb(42, 102, 88);
+  font-size: 3vw;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.info{
+  position:absolute;
+  color:white;
 
-    font-size:5vh;
-    font-family: "trajan-pro-3", serif;
-    font-weight: 500;
-    font-style: normal;
-  }
-  .date{
-    text-align:left;
-    line-height:1vh;
-    position:absolute;
+  font-size:5vh;
+  font-family: "trajan-pro-3", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.date{
+  text-align:left;
+  line-height:1vh;
+  position:absolute;
 
-    left: 9vh;
-    bottom: 21vh;
+  left: 9vh;
+  bottom: 21vh;
 
-    font-size: 9vh;
-    transform: rotate(45deg);
-    
-  }
-  .location{
-    text-align: center;
-    line-height:6vh;
-    position: absolute;
+  font-size: 9vh;
+  transform: rotate(45deg);  
+}
+.location{
+  text-align: center;
+  line-height:6vh;
+  position: absolute;
 
-    left: 12vh;
-    bottom: 46vh;
-    transform: rotate(45deg);
-    transform-origin: bottom left;
-    
-  }
+  left: 16vh;
+  bottom: 39vh;
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+}
+.musiclinks{ 
+  position: absolute;
+  width: 37vw;
+  top: 3vh;
+  left: 52vh;
+  text-align: left;
+  opacity: 0;
+}
+a{
+  height: 2vw;
+  width:21vw;
+  margin-bottom: 2vw;
+  color:rgb(42, 102, 88);
+  font-size: 30px;
+  text-decoration: none;
+  font-family: "trajan-pro-3", serif;
+  font-weight: 500;
+  font-style: normal;
 
+}
+.container:hover ~ .musiclinks{
+  transition: 1500ms;
+  opacity: 1;
+}
+.musiclinks:hover{
+  transition: 1500ms;
+  opacity: 1;
+}
+.tracklist-right:hover{
+  transition: 1500ms;
+  opacity: 1;
+}
+.tracklist-left:hover{
+  transition: 1500ms;
+  opacity: 1;
+}
+a:hover{
+  color:white;
+}
 
-
-  

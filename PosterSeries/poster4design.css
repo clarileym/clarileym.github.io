@@ -1,5 +1,6 @@
 body{
     background-color:antiquewhite;
+    margin:0 0;
 }
 
  .container{
@@ -7,13 +8,28 @@ body{
     width:100vh;
     margin: 10px auto;
     padding:20px;
-    top: 20vh;
+    top: 27vh;
     
     position: relative;
     transform:rotate(-45deg);
-  
-
+    pointer-events: none;
   }
+  .heart{
+    background-image: url(../Images/aurora-heart.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size:cover;    
+    
+
+    height:73vh;
+    width:39vh;
+
+    bottom:2.5vh;
+    right:21vh;
+
+    display: inline-block;
+    position: absolute;
+}
 .back{
     background: url(../Images/bluebackground.jpg);
     background-repeat: no-repeat;
@@ -23,17 +39,7 @@ body{
    
     height: 100vh;
     width: 100vh;
-}
-
-img{
-  display: inline-block;
-  position:absolute;
-  transform: rotate(45deg);
-  
-  bottom:-3vh;
-  right:39vh;
-  transform:scale(1.5) rotate(45deg);
-  z-index: 2;
+   
 }
 .album h2{
     position: absolute;
@@ -55,6 +61,12 @@ img{
     transform: rotate(90deg);
     transform-origin: top right;
     z-index: 6;
+    pointer-events:all;
+    transition: 1500ms;
+}
+.album h2:hover{
+    color:black;
+    transition: 1500ms;
 }
   .title{
     text-align: center;
@@ -66,30 +78,82 @@ img{
     font-style: normal;
     line-height: 0vh;
 
-    top:-5vh;
+    top:18vh;
     width:100vh;
   
     display:inline-block;
     position:absolute;
     z-index: 6;
   }
-  .heart{
-    background-image: url(../Images/aurora-heart.png);
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size:cover;    
-    
-
-    height:73vh;
-    width:39vh;
-
-    bottom:2.5vh;
-    right:21vh;
-
-    display: inline-block;
-    position: absolute;
+.container:hover ~ .tracklist-left{
+    transition: 1500ms;
+    opacity: 1;
 }
-
+.container:hover ~ .tracklist-right{
+    transition: 1500ms;
+    opacity: 1;
+}
+.container:hover ~ .tracklist{
+    transition: 1500ms;
+    opacity: 1;
+}
+.tracklist{
+    text-align: center;
+    font-size: 3vw;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    top:1vh;
+    color:rgb(58, 92, 163);
+    position:absolute;
+    width: 100vw;
+    opacity: 0;
+    transition: 1500ms;
+   
+}
+.tracklist-left{
+    position: absolute;
+    width: 37vw;
+    display: inline-block;
+    top: 3vh;
+    left: 2vh;
+    text-align: left;
+    opacity: 0;
+    transition: 1500ms;
+}
+.left{
+    display: inline-block;
+    height: 2vw;
+    width:21vw;
+    margin-bottom: 2vw;
+    color:rgb(58, 92, 163);
+    font-size: 3vw;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.tracklist-right{
+    position: absolute;
+    width: 20vw;
+    display: inline-block;
+    top: 3vh;
+    right: 2vw;
+    text-align: right;
+    opacity: 0;
+    transition: 1500ms;
+}
+.right{
+    display: inline-block;
+    text-align: right;
+    height: 2vw;
+    width:20vw;
+    margin-bottom: 2vw;
+    color:rgb(58, 92, 163);
+    font-size: 3vw;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
   .info{
     position:absolute;
     color:white;
@@ -99,7 +163,7 @@ img{
     font-weight: 500;
     font-style: normal;
   }
-  .date{
+.date{
     text-align:left;
     line-height:1vh;
     position:absolute;
@@ -108,10 +172,9 @@ img{
     bottom: 21vh;
 
     font-size: 9vh;
-    transform: rotate(45deg);
-    
-  }
-  .location{
+    transform: rotate(45deg);  
+}
+.location{
     text-align: center;
     line-height:6vh;
     position: absolute;
@@ -120,8 +183,7 @@ img{
     bottom: 46vh;
     transform: rotate(45deg);
     transform-origin: bottom left;
-    
-  }
+}
 
 
 
