@@ -1,45 +1,45 @@
 body{
   background-color:antiquewhite;
-  margin:0 0;
+  margin:20vh auto;
+  height: fit-content;
+  width: fit-content;
 }
 
 .container{
-  height:100vh;
-  width:100vh;
-  margin: 10px auto;
-  padding:20px;
+  height:95vh;
+  width:95vh;
   top: 27vh;
   
   position: relative;
   transform:rotate(-45deg);
-}
-.heart{
-  background-image: url(../Images/aurora-heart.png);
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size:cover;    
-  
-
-  height:73vh;
-  width:39vh;
-
-  bottom:2.5vh;
-  right:21vh;
-
-  display: inline-block;
-  position: absolute;
-  
 }
 .back{
   background: url(../Images/vertbackground.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size:cover;
+  position:fixed;
+ 
+  height: 95vh;
+  width: 95vh;
+ 
+}
+.title{
+  text-align: center;
+
+  color: white;
+  font-size: 31vh;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 0vh;
+
+  top:16vh;
+  width:95vh;
+
+  display:inline-block;
   position:absolute;
- 
-  height: 100vh;
-  width: 100vh;
- 
+  z-index: 6;
 }
 .album h2{
   position: absolute;
@@ -47,8 +47,8 @@ body{
 
   width:70vh;
   height:fit-content;
-  right:5vh;
-  bottom:-15vh;
+  right:2vh;
+  bottom:-18vh;
 
   color:white;
   text-align: right;
@@ -61,98 +61,6 @@ body{
   transform: rotate(90deg);
   transform-origin: top right;
   z-index: 6;
-  transition: 1500ms;
-}
-.album h2:hover{
-  color:black;
-  transition: 1500ms;
-}
-.title{
-  text-align: center;
-
-  color: white;
-  font-size: 35vh;
-  font-family: "Amatic SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  line-height: 0vh;
-
-  top:18vh;
-  width:100vh;
-
-  display:inline-block;
-  position:absolute;
-  transition: 1500ms;
-  z-index: 6;
-}
-.container:hover ~ .tracklist-left{
-  transition: 1500ms;
-  opacity: 1;
-}
-.container:hover ~ .tracklist-right{
-  transition: 1500ms;
-  opacity: 1;
-}
-.container:hover ~ .tracklist{
-  transition: 1500ms;
-  opacity: 1;
-}
-.tracklist{
-  text-align: center;
-  font-size: 3vw;
-  font-family: "Amatic SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  top:1vh;
-  color:rgb(42, 102, 88);
-  position:absolute;
-  width: 100vw;
-  opacity: 0;
-  transition: 1000ms;
- 
-}
-.tracklist-left{
-  position: absolute;
-  width: 37vw;
-  display: inline-block;
-  top: 3vh;
-  left: 2vh;
-  text-align: left;
-  opacity: 0;
-  transition: 1000ms;
-}
-.left{
-  display: inline-block;
-  height: 2vw;
-  width:21vw;
-  margin-bottom: 2vw;
-  color:rgb(42, 102, 88);
-  font-size: 3vw;
-  font-family: "Amatic SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-.tracklist-right{
-  position: absolute;
-  width: 20vw;
-  display: inline-block;
-  top: 3vh;
-  right: 2vw;
-  text-align: right;
-  opacity: 0;
-  transition: 1000ms;
-}
-.right{
-  display: inline-block;
-  text-align: right;
-  height: 2vw;
-  width:20vw;
-  margin-bottom: 2vw;
-  color:rgb(42, 102, 88);
-  font-size: 3vw;
-  font-family: "Amatic SC", sans-serif;
-  font-weight: 700;
-  font-style: normal;
 }
 .info{
   position:absolute;
@@ -168,8 +76,8 @@ body{
   line-height:1vh;
   position:absolute;
 
-  left: 9vh;
-  bottom: 21vh;
+  left: 3vh;
+  bottom: 16vh;
 
   font-size: 9vh;
   transform: rotate(45deg);  
@@ -179,30 +87,115 @@ body{
   line-height:6vh;
   position: absolute;
 
-  left: 16vh;
-  bottom: 39vh;
+  left: 11vh;
+  bottom: 48vh;
   transform: rotate(45deg);
   transform-origin: bottom left;
 }
-.musiclinks{ 
+.heart{
+  background-image: url(../Images/aurora-heart.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size:cover;    
+  
+
+  height:65vh;
+  width:35vh;
+
+  bottom:0vw;
+  right:24vh;
+
+  display: inline-block;
+  position: fixed;
+  z-index: 2;
+}
+.tracklist{
+  text-align: center;
+  font-size: 35px;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  top:1vh;
+  color:rgb(42, 102, 88);
+  position:absolute;
+  width: 100vw;
+  left: 0;
+  opacity: 0;
+ 
+}
+.tracklist-left{
   position: absolute;
   width: 37vw;
+  display: inline-block;
   top: 3vh;
-  left: 52vh;
+  left: 2vh;
+  text-align: left;
+  opacity: 0;
+  transition: 1000ms;
+}
+.left{
+  display: inline-block;
+  height: 2vw;
+  width:25vw;
+  margin-bottom: 2vw;
+  color:rgb(42, 102, 88);
+  font-size: 3.5vw;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.tracklist-right{
+  position: absolute;
+  width: 37vw;
+  display: inline-block;
+  top: 3vh;
+  right: 2vh;
+  text-align: right;
+  opacity: 0;
+  transition: 1000ms;
+}
+.right{
+  display: inline-block;
+  text-align: right;
+  height: 2vw;
+  width:25vw;
+  margin-bottom: 2vw;
+  color:rgb(42, 102, 88);
+  font-size: 3.5vw;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.musiclinks{ 
+  position: absolute;
+  width: 27vw;
+  top: 9vh;
+  left: 25vw;
   text-align: left;
   opacity: 0;
 }
 a{
-  height: 2vw;
-  width:21vw;
-  margin-bottom: 2vw;
+  margin-bottom: 0vw;
   color:rgb(42, 102, 88);
-  font-size: 30px;
+  font-size: 20px;
   text-decoration: none;
   font-family: "trajan-pro-3", serif;
   font-weight: 500;
   font-style: normal;
+  display: inline-block;
 
+}
+.container:hover ~ .tracklist-left{
+  transition: 1500ms;
+  opacity: 1;
+}
+.container:hover ~ .tracklist-right{
+  transition: 1500ms;
+  opacity: 1;
+}
+.container:hover ~ .tracklist{
+  transition: 1500ms;
+  opacity: 1;
 }
 .container:hover ~ .musiclinks{
   transition: 1500ms;
