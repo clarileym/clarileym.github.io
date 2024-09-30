@@ -1,7 +1,7 @@
 body{
     background-color: black;
     margin:20px;
-    background-image: url(../clarileym.github.io/Images/fire1.jpg) ;
+    background-image: url(../Images/fire1.jpg) ;
     background-repeat: no-repeat;
     background-position: top;
     background-size:cover;
@@ -13,7 +13,7 @@ body{
 @media (max-width: 1888px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire2.jpg) ;
+        background-image: url(../Images/fire2.jpg) ;
         background-repeat: no-repeat;
         background-position: center;
         background-size:cover;
@@ -22,7 +22,7 @@ body{
 @media (max-width: 1688px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire13.jpg) ;
+        background-image: url(../Images/fire13.jpg) ;
         background-repeat: no-repeat;
         background-position: center;
         background-size:cover;
@@ -32,7 +32,7 @@ body{
 @media (max-width: 1488px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire3.jpg) ;
+        background-image: url(../Images/fire3.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
@@ -42,7 +42,7 @@ body{
 @media (max-width: 1288px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire4.jpg) ;
+        background-image: url(../Images/fire4.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
@@ -52,7 +52,7 @@ body{
 @media (max-width: 1188px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire5.jpg) ;
+        background-image: url(../Images/fire5.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
@@ -61,7 +61,7 @@ body{
 @media (max-width: 1088px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire5.5.jpg) ;
+        background-image: url(../Images/fire5.5.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
@@ -70,7 +70,7 @@ body{
 @media (max-width: 988px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire6.jpg) ;
+        background-image: url(../Images/fire6.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
@@ -79,7 +79,7 @@ body{
 @media (max-width: 988px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire7.jpg) ;
+        background-image: url(../Images/fire7.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
@@ -88,7 +88,7 @@ body{
 @media (max-width: 888px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire8.jpg) ;
+        background-image: url(../Images/fire8.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
@@ -97,7 +97,7 @@ body{
 @media (max-width: 788px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire9.jpg) ;
+        background-image: url(../Images/fire9.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
@@ -106,7 +106,7 @@ body{
 @media (max-width: 688px){
     body{
         background-color: black;
-        background-image: url(../clarileym.github.io/Images/fire1.jpg) ;
+        background-image: url(../Images/fire1.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
