@@ -32,9 +32,6 @@ p{
     letter-spacing: 1px;
     text-align: justify;
 }
-html{
-    background-color:rgb(245, 241, 227);
-}
 .title{
     font-family: "Protest Guerrilla", sans-serif;
     font-weight: 400;
@@ -55,6 +52,10 @@ html{
     font-family: "Amatic SC", sans-serif;
     font-weight: 700;
     font-style: normal;
+}
+li{
+    list-style-type: none;
+}
 }
 .sublist ul li{
     line-height:1;
