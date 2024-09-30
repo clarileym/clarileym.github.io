@@ -18,6 +18,7 @@ body {
     height: 100%;
     margin-right: 100px;
     background-color: rgb(221, 219, 203);
+    list-style-type:none;
 }
 a{
     color:rgb(27, 154, 170);
@@ -25,7 +26,6 @@ a{
     font-family: "Amatic SC", sans-serif;
     font-weight: 400;
     font-style: normal;
-    list-style-type:none;
 }
 
 p{
