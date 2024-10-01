@@ -1,114 +1,121 @@
 body{
+    transition: 500ms ease-in-out;
     background-color: black;
-    margin:20px;
+}
+.container{
+    width:95vw;
+    height: 95vh;
+    margin: 0 auto;
     background-image: url(Images/fire1.jpg) ;
     background-repeat: no-repeat;
-    background-position: top;
-    background-size:cover;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    transition: 500ms ease-in-out;
+    background-position: center;
+    background-size:contain;
 }
-@media (max-width: 1888px){
-    body{
-        background-color: black;
-        background-image: url(../Images/fire2.jpg) ;
+.direction{
+    display: flex;
+    position:fixed;
+    align-items: center;
+    margin:1vh;
+    padding-left: 1vh;
+    right:0vw;
+    top:50vh;
+    z-index: 4;
+    font-size: 4vh;
+    color: grey;
+    background-color:rgb(0,0,0,0.3);
+    width:12vh;
+    height:20vh;
+
+
+}
+@media (max-width: 1400px){
+    .container{
+        background-image: url(Images/fire2.jpg) ;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:contain;
+    }
+}
+@media (max-width: 1350px){
+    .container{
+        background-image: url(Images/fire13.jpg) ;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size:cover;
+    }
+}
+@media (max-width: 1300px){
+    .container{
+        background-image: url(Images/fire3.jpg) ;
         background-repeat: no-repeat;
         background-position: center;
         background-size:cover;
     }
 }
-@media (max-width: 1688px){
-    body{
-        background-color: black;
-        background-image: url(../Images/fire13.jpg) ;
+@media (max-width: 1200px){
+    .container{
+        background-image: url(Images/fire4.jpg) ;
         background-repeat: no-repeat;
         background-position: center;
         background-size:cover;
-
     }
 }
-@media (max-width: 1488px){
-    body{
-        background-color: black;
-        background-image: url(../Images/fire3.jpg) ;
+@media (max-width: 1100px){
+    .container{
+        background-image: url(Images/fire5.jpg) ;
         background-repeat: no-repeat;
-        background-position: top;
+        background-position: center;
         background-size:cover;
-
     }
 }
-@media (max-width: 1288px){
-    body{
-        background-color: black;
-        background-image: url(../Images/fire4.jpg) ;
+@media (max-width: 1000px){
+    .container{
+        background-image: url(Images/fire5.5.jpg) ;
         background-repeat: no-repeat;
-        background-position: top;
+        background-position: center;
         background-size:cover;
-
     }
 }
-@media (max-width: 1188px){
-    body{
-        background-color: black;
-        background-image: url(../Images/fire5.jpg) ;
+@media (max-width: 900px){
+    .container{
+        background-image: url(Images/fire6.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
     }
 }
-@media (max-width: 1088px){
-    body{
-        background-color: black;
-        background-image: url(../Images/fire5.5.jpg) ;
+@media (max-width: 800px){
+    .container{
+        background-image: url(Images/fire7.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
     }
 }
-@media (max-width: 988px){
-    body{
-        background-color: black;
-        background-image: url(../Images/fire6.jpg) ;
+@media (max-width: 700px){
+    .container{
+        background-image: url(Images/fire8.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
     }
 }
-@media (max-width: 988px){
-    body{
-        background-color: black;
-        background-image: url(../Images/fire7.jpg) ;
-        background-repeat: no-repeat;
-        background-position: top;
-        background-size:cover;
-    }
-}
-@media (max-width: 888px){
-    body{
-        background-color: black;
-        background-image: url(../Images/fire8.jpg) ;
-        background-repeat: no-repeat;
-        background-position: top;
-        background-size:cover;
-    }
-}
-@media (max-width: 788px){
-    body{
-        background-color: black;
+@media (max-width: 600px){
+    .container{
         background-image: url(Images/fire9.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
     }
 }
-@media (max-width: 688px){
-    body{
-        background-color: black;
+@media (max-width: 500px){
+    .container{
         background-image: url(Images/fire1.jpg) ;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
+    }
+    .direction{
+        display: none;
     }
 }
