@@ -12,13 +12,12 @@ body{
     background-size:contain;
 }
 .direction{
-    display: flex;
     position:fixed;
     align-items: center;
     margin:1vh;
     padding-left: 1vh;
     right:0vw;
-    top:50vh;
+    top:41vh;
     z-index: 4;
     font-size: 4vh;
     color: grey;
