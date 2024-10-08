@@ -20,6 +20,13 @@ body {
     justify-content: center;
     align-items: center;
 }
+a {
+    text-decoration: none;
+    color:white;
+}
+a:hover{
+    color:brown;
+}
 
 /* "C" */
 .container .div-1, .container .div-4, .container .div-2, .container .div-3, 
