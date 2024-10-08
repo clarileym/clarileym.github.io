@@ -1,0 +1,62 @@
+body {
+    background-color: #000000;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, fr);
+    height: 100vh;
+    gap: 1em;
+}
+
+.container div {
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    grid-column: span 1;
+    grid-row: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* "C" */
+.container .div-1, .container .div-4, .container .div-2, .container .div-3, 
+.container .div-13, .container .div-38, .container .div-39, 
+.container .div-37, .container .div-25, .container .div-40 {
+    background-color:darkred
+}
+
+/* "U" */
+.container .div-15, .container .div-16, .container .div-17, 
+.container .div-18, .container .div-30, .container .div-42, 
+.container .div-54, .container .div-53, .container .div-52,
+.container .div-51, .container .div-53 {
+    background-color: aquamarine;
+}
+
+/* "B" */
+.container .div-7, .container .div-19, .container .div-31, 
+.container .div-43, .container .div-55, .container .div-8, 
+.container .div-21, .container .div-45, .container .div-56,
+.container .div-56, .container .div-57, .container .div-9,
+.container .div-32 {
+    background-color:bisque;
+}
+
+/* "E" */
+.container .div-61, .container .div-73, .container .div-85, 
+.container .div-86, .container .div-87, .container .div-88, 
+.container .div-77, .container .div-65, .container .div-89,
+.container .div-90, .container .div-93, .container .div-91, 
+.container .div-81, .container .div-92, .container .div-69 {
+    background-color:darkcyan;
+}
+/* "?" */
+.container .div-10, .container .div-11, .container .div-12, 
+.container .div-24, .container .div-36, .container .div-48, 
+.container .div-47, .container .div-59, .container .div-71,
+.container .div-95 {
+    background-color:lightslategray;
+}
