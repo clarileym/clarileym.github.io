@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo: Random Logo</title>
+		<style type="text/css">
+			body {
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				background-color: #ffffff;
+				color: black;
+				margin: 0;
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 72px;
+				letter-spacing: -0.02em;
+			}
+
+			main {
+				min-width: 100vw;
+				min-height: 100vh;
+				display: flex;
+				/* place-content: center; */
+				align-items: center;
+			}
+
+			.logo-box {
+				width: 512px;
+				height: 512px;
+				padding: 20px;
+				display: flex;
+				/* flex-wrap: wrap; */
+				/* place-content: start; */
+			}
+
+			.word {
+				/* We want to randomize background colors */
+				background-color: aqua;
+				/* We want to randomize border radius */
+				border-radius: 50%;
+				height: 1em;
+				line-height: 100%;
+				padding: 0.25em 0.5em;
+				transform: rotate(15deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<main>
+			<div class="logo-box">
+				<!-- We will randomize rotation of each word -->
+				<div class="word one">The</div>
+				<div class="word two">New</div>
+				<div class="word three">School</div>
+			</div>
+		</main>
+		<script type="text/javascript">
+			// Set the array values here for randomization
+			let colors = ["#FF5733", "#33FF57", "#3357FF", "#F3FF33", "#FF33A8"];
+			let rotation = [
+				"-30deg",
+				"-20deg",
+				"-15deg",
+				"-10deg",
+				"0deg",
+				"10deg",
+				"15deg",
+				"20deg",
+				"30deg",
+			];
+			let borderRadius = ["0%", "50%"];
+
+			let wordOne = document.querySelector(".one");
+			let wordTwo = document.querySelector(".two");
+			let wordThree = document.querySelector(".three");
+
+			window.addEventListener("load", () => {
+				// Word 1 - color
+				let randomOne = Math.floor(Math.random() * colors.length);
+				wordOne.style.backgroundColor = colors[randomOne];
+                let colorOneLetters = Math.floor(Math.random() * colors.length);
+                wordOne.style.color = colors[colorOneLetters];
+
+				// Word 1 - rotation
+				let rotateOne = Math.floor(Math.random() * rotation.length);
+				wordOne.style.transform = "rotate(" + rotation[rotateOne] + ")";
+
+				// Word 1 - border radius
+				let randomBorderOne = Math.floor(Math.random() * borderRadius.length);
+				wordOne.style.borderRadius = borderRadius[randomBorderOne];
+
+				// Word 2 - color
+				let randomTwo = Math.floor(Math.random() * colors.length);
+				wordTwo.style.backgroundColor = colors[randomTwo];
+                let colorTwoLetters = Math.floor(Math.random() * colors.length);
+                wordTwo.style.color = colors[colorTwoLetters];
+
+				// Word 2 - rotation
+				let rotateTwo = Math.floor(Math.random() * rotation.length);
+				wordTwo.style.transform = "rotate(" + rotation[rotateTwo] + ")";
+
+				// Word 2 - border radius
+				let randomBorderTwo = Math.floor(Math.random() * borderRadius.length);
+				wordTwo.style.borderRadius = borderRadius[randomBorderTwo];
+
+				// Word 3 - color
+				// Add code here for random background color of word 3
+                let colorThree = Math.floor(Math.random() * colors.length);
+				wordThree.style.backgroundColor = colors[colorThree];
+                let colorThreeLetters = Math.floor(Math.random() * colors.length);
+                wordThree.style.color = colors[colorThreeLetters];
+
+				// Word 3 - rotation
+				// Add code here for random rotation of word 3
+                let rotateThree = Math.floor(Math.random() * rotation.length);
+				wordThree.style.transform = "rotate(" + rotation[rotateThree] + ")";
+
+				// Word 3 - border radius
+				// Add code here for random border radius of word 3
+                let randomBorderThree = Math.floor(Math.random() * borderRadius.length);
+				wordThree.style.borderRadius = borderRadius[randomBorderThree];
+			});
+		</script>
+	</body>
+
+</html>

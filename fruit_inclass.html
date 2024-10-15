@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Demo: Random Fruit</title>
+        <style type="text/css">
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                background-color: #ffffff;
+                color: black;
+                margin: 0;
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 72px;
+                letter-spacing: -0.02em;
+            }
+
+            main {
+                min-width: 100vw;
+                min-height: 100vh;
+                display: flex;
+                place-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <div class="fruit-box">
+            </div>
+        </main>
+        <script type="text/javascript">
+            let fruit = ["🍏", "🍎", "🍐", "🍊", "🍋", "🍉", "🍇", "🍓", "🥭"];
+            // Your code goes here!
+            let randomFruit = Math.floor(Math.random() * fruit.length);
+            let fruitBox = document.querySelector (".fruit-box");
+
+            let colors = ["violet", "orange", "red", "yellow", "pink", "green"];
+            let randomColor = Math.floor(Math.random() * colors.length);
+
+            window.addEventListener("load", () => { //this is preloaded syntax - cannot be changed. This is listening for changes in the window and it happens on the load(refresh)
+                fruitBox.textContent = fruit[randomFruit];
+                document.body.style.background = colors[randomColor];
+            })
+
+        </script>
+    </body>
+
+</html>
