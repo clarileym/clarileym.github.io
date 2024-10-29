@@ -23,45 +23,77 @@
                 background-image: url(Images/InteractiveIdentity/redtree.png);
                 background-position: center;
                 background-repeat: no-repeat;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+          
             }
               
+            
+
             .backgroundMask{
-                width: 100vw;
-                height: 100vh;
+                width: 100%;
+                height: 100%;
                 background-image: url("Images/InteractiveIdentity/redtree.png");
                 mask-image: url("Images/InteractiveIdentity/smallLogo.svg");
-                transform: scale(120%);
                 mask-position: center;
                 mask-repeat: no-repeat;
                 mask-size: contain;
+                position: absolute;
+                z-index: 1;
             }
-            .colorMask{
-                background-color: red;
+            .overColorMask {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 2;
             }
+
+            .overColorMask svg {
+                width: 100%;
+                height: 100%;
+            }
+
             @media (orientation: landscape) {
                 .logoOne {
-                    background-size: contain;
+                  background-size: contain;
+                  
                 }
                 .backgroundMask{ 
-                  transform: scale(120%);
+                  transform: scale(150%);
                 }
+                .overColorMask{
+                  transform: scale(150%);
+                }
+                .mask-container {
+                width: 70vw;
+                height: 70vh;
+                display: flex;
+                align-items: start;
+                justify-content: start;
+            }
+                
             }
 
             @media (orientation: portrait) {
                 .logoOne {
                     background-size: cover;
+                    display: flex;
+                align-items: center;
+                justify-content: center;
                 }
                 .backgroundMask{ 
                     transform: rotate(90deg) scale(160%);
-                   
-                top: 50%;
-                left: 50%;
                 }
+                .overColorMask{
+                  transform: rotate(90deg) scale(160%);
+                }
+                .mask-container {
+                width: 70vw;
+                height: 70vh;
+                display: flex;
+                align-items: start;
             }
+                }
+
+           
 
 		</style>
 	</head>
@@ -69,12 +101,29 @@
 	<body>
 		<main>
             <div class="logoOne">
-              <div class="colorMask">
-                
-              </div>
-                <div class="backgroundMask"></div>
-                
-				<div class="logoTwo"></div>
+                <div class="mask-container">
+                    <div class="backgroundMask"></div>
+                    <div class="overColorMask">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 576 576">
+                            <defs>
+                            </defs>
+                            <g>
+                                <g id="Layer_1">
+                                    <path class="colorMask" d="M340.2,221c0-1.7-.5-2.2-2.2-2.1-8,.1-16,.2-24,.1-1.7,0-2.6.5-3.3,1.8-2.7,5.4-5.6,10.6-8.5,15.9-3.7,6.7-7.3,13.5-10.6,20.5-3.7,7.7-7.9,15.1-12,22.7-.7,1.3-.5,1.7,1,1.7,3.7,0,7.5,0,11.2,0,1.6,0,2.5-.6,3.2-2,2.2-4.2,4.5-8.4,6.7-12.7.6-1.1,1.4-1.5,2.6-1.5,6.3,0,12.7,0,19,0,1.7,0,2.2.6,2.2,2.2,0,3.9,0,7.8,0,11.8,0,1.5.5,2.2,2.1,2.1,3.6,0,7.1,0,10.7,0,1.5,0,1.8-.5,1.8-1.9,0-9.8,0-19.6,0-29.4s0-19.6,0-29.4h0ZM325.6,253.4c0,2-.4,2.3-2.4,2.3-4.2,0-8.4,0-12.6,0-2.4,0-2.7-.4-1.5-2.6,3.9-7.4,7.8-14.7,11.7-22,.9-1.6,2.4-1.1,3.7-1,1.3,0,1.1,1.2,1.1,2.1v10.5c0,3.6,0,7.1,0,10.7h0Z"/>
+                                </g>
+                                <g id="Layer_2">
+                                    <path class="colorMask" d="M249.8,250.3c0,9.9,0,19.8,0,29.7,0,1.4.6,1.5,1.6,1.5,3.7,0,7.4,0,11.1,0,1.4,0,1.8-.5,1.8-1.8,0-7.4,0-14.9,0-22.3,0-2.3.3-2.6,2.7-2.6,6.2,0,12.3,0,18.5,0,1,0,1.6-.3,2.1-1.2,1.3-2.4,2.6-4.8,4-7.2.3-.6.9-1.2.5-1.9s-1.2-.4-1.9-.4c-7.9,0-15.8,0-23.7,0-1.5,0-2.2-.6-2.2-2.2,0-3.4,0-6.8,0-10.2,0-1.4.6-1.9,2-1.9,10.7,0,21.4,0,32.1,0,1,0,1.7-.3,2.1-1.1,1.5-2.9,3.1-5.9,4.6-8.9.4-.8.1-1.1-.8-1.1-4.3,0-8.6,0-13,0-13.1.1-26.3.2-39.4,0-1.5,0-2.1.3-2.1,2,0,9.8,0,19.6,0,29.4h0Z"/>
+                                </g>
+                                <g id="Layer_3">
+                                    <path class="colorMask" d="M173.4,250.5c0-9.9,0-19.8,0-29.7,0-1.4.4-1.8,1.8-1.8,5.1.1,10.1.2,15.2,0,1.8,0,2.5.7,3,2.1,1.7,4.7,3.3,9.5,5.1,14.2,2.1,5.9,4.4,11.7,6.5,17.5,1.2,3.3,2.4,6.7,3.5,10.1.2.5.2,1.1.9,1.1.6,0,.9-.5,1.1-1,1-2.7,2-5.4,3-8.1,1.8-4.9,3.6-9.8,5.4-14.7,1.7-4.5,3.3-9,5-13.6.8-2.3,1.6-4.5,2.4-6.8.3-.8.8-.9,1.5-.9,4.9,0,9.8-.1,14.7-.1,1.3,0,1.4.9,1.4,1.9,0,6.6,0,13.2,0,19.9,0,12.1.1,24.3.1,36.5,0,5.3.4,4.3-4.3,4.4-2.3,0-4.6,0-6.9,0-1.5,0-2-.6-2-2.1,0-5.4,0-10.7,0-16.1,0-6-.1-12-.2-18,0-1.4.2-2.9.2-4.3,0-.4,0-.9-.4-1-.4-.1-.7.2-1,.5-1.3,1.4-1.4,3.4-2,5.1-2.4,6.5-4.5,13.1-6.9,19.6-1.8,4.8-3.3,9.6-4.9,14.5-.4,1.2-1,1.7-2.2,1.7-2.9,0-5.8,0-8.6,0s-2.9-.3-3.7-2.7c-1.4-4.3-3.1-8.5-4.5-12.8-2-5.9-4.2-11.8-6.1-17.7-.7-2.3-1.7-4.5-2.2-6.9-.1-.5-.4-1.1-1-1-.7,0-.6.7-.6,1.2,0,3.3,0,6.7,0,10,0,9.5,0,19,0,28.5,0,1-.3,1.3-1.3,1.3-3.5,0-7,0-10.5,0-1.1,0-1.5-.4-1.5-1.5,0-9.9,0-19.7,0-29.6h0Z"/>
+                                </g>
+                                <g id="Layer_4">
+                                    <path class="colorMask" d="M105.1,261c0,7.1,0,14.2,0,21.2s-.2,1.8,1.2,1.1c6-3.2,12-6.4,17.9-9.6,7.1-3.9,14.2-7.7,21.4-11.6,5.3-2.8,10.6-5.6,15.8-8.6,2.8-1.6,2.8-3.3,0-4.9-5-2.7-10-5.4-15.1-8.1-13.1-7-26.2-14.1-39.3-21.1-1.8-.9-1.8-.9-1.8,1.1v40.3h0Z"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
             </div>
 		</main>
 
@@ -83,21 +132,48 @@
     <script type="text/javascript">
         let logoOne = document.querySelector(".logoOne");
         let backgroundMask = document.querySelector(".backgroundMask");
+        let colorMaskPaths = document.querySelectorAll(".colorMask");
 
         let images = [
             "url('Images/InteractiveIdentity/redtree.png')",
             "url('Images/InteractiveIdentity/bwOrchid.png')",
             "url('Images/InteractiveIdentity/whiteflower.png')",
             "url('Images/InteractiveIdentity/bluey.png')",
-            "url('Images/InteractiveIdentity/greeny.png')"
+            "url('Images/InteractiveIdentity/redred.png')"
         ];
-        
-        let randomImage = images[Math.floor(Math.random() * images.length)];
 
+        let colors = [
+            ["#DDAA1C", "#A65A53", "#C2B3BD", "#BDA0AB", "#7B1104"],
+            ["#B4B3AE", "#3A3A39", "#4B4B49", "#787773", "#2F3031"],
+            ["#B1BCB6", "#8BA5A3", "#447677", "#153B35", "#EBE7D8"],
+            ["#DADEC7", "#80AC9B", "#ACCDBC", "#363832", "#676C69"],
+            ["#D0CACC", "#EB8B75", "#A10704", "#C32204", "#C9A8A5"]
+        ];
+
+        let opacity = [
+          ["0.2", "0.3", "0.4", "0.5"],
+          ["0.2", "0.3", "0.4", "0.5"],
+          ["0.2", "0.3", "0.4", "0.5"],
+          ["0.2", "0.3", "0.4", "0.5"],
+          ["0.2", "0.3", "0.4", "0.5"],
+
+        ]
+
+        let randomNumber = Math.floor(Math.random() * images.length);
+      
         window.addEventListener("load", () => { 
-            console.log("Selected image:", randomImage);
-            logoOne.style.backgroundImage = randomImage;
-            backgroundMask.style.backgroundImage = randomImage;
+            logoOne.style.backgroundImage = images[randomNumber];
+            backgroundMask.style.backgroundImage = images[randomNumber];
+
+            colorMaskPaths.forEach((path) => {
+                let randomColorIndex = Math.floor(Math.random() * colors[randomNumber].length);
+                let randomColor = colors[randomNumber][randomColorIndex];
+                let randomOpacity = opacity[randomNumber][randomColorIndex];
+                
+                path.style.fillOpacity = randomOpacity;
+                path.style.fill = randomColor;
+
+            });
         });
     </script>
 
