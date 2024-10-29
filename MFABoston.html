@@ -96,7 +96,7 @@
 		</main>
 
         <script type="text/javascript">
-        let backgroundImages = [
+        let images = [
             'Images/InterativeIdentity/redtree.png',
             'Images/InteractiveIdentity/bwOrchid.png',
             'Images/InteractiveIdentity/LEAFY.png',
@@ -104,12 +104,13 @@
             'Images/InteractiveIdentity/greeny.png'
         ];
         
-        let randomImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+        let randomImage = images[Math.floor(Math.random() * images.length)];
             
-        randomImage.querySelector ('.logoOne').style.backgroundImage = 'url(${randomImage})';
+        let logoOne = document.querySelector ('.logoOne');
+        
         
         window.addEventListener("load", () => { 
-                document.body.style.backgroundImage = images[randomImage];
+                logoOne.style.backgroundImage = 'url(${randomImage})';
             })
 
         let colors = ["violet", "orange", "red", "yellow", "pink", "rgba( 255,255,255,0 )" ];
