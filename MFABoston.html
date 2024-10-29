@@ -24,6 +24,7 @@
                 width: 100vw;
                 height: 100vh;
                 z-index: -999;
+                background-image: url(Images/InteractiveIdentity/redtree.png);
                 background-size: cover;
                 background-position: top;
                 background-repeat: no-repeat;
@@ -44,7 +45,6 @@
 
 	<body>
 		<main>
-				<!-- We will randomize rotation of each word -->
             <div class="logoOne">
                 <div class=backgroundMask>
                     <img src="Images/InteractiveIdentity/redtree.png">
@@ -95,30 +95,7 @@
 				<div class="logoTwo"></div>
 		</main>
 
-        <script type="text/javascript">
-        let images = [
-            'Images/InterativeIdentity/redtree.png',
-            'Images/InteractiveIdentity/bwOrchid.png',
-            'Images/InteractiveIdentity/LEAFY.png',
-            'Images/InteractiveIdentity/bluey.png',
-            'Images/InteractiveIdentity/greeny.png'
-        ];
         
-        let randomImage = images[Math.floor(Math.random() * images.length)];
-            
-        let logoOne = document.querySelector ('.logoOne');
-        
-        
-        window.addEventListener("load", () => { 
-                logoOne.style.backgroundImage = 'url(${randomImage})';
-            })
-
-        let colors = ["violet", "orange", "red", "yellow", "pink", "rgba( 255,255,255,0 )" ];
-        let randomColor = Math.floor(Math.random() * colors.length);
-
-        
-                
-        </script>
 	</body>
 
 </html>
