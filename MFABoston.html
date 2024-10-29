@@ -13,53 +13,81 @@
 				min-height: 100vh;
 				display: flex;
 				align-items: center;
+				justify-content: center;
 			}
          
-            #fullLogo{
-                width: 100vw;
-                height: 100vh;   
-            }
+            
             .logoOne{
-                width: 100vw;
-                height: 100vh;
-                z-index: -999;
+                width: 70vw;
+                height: 70vh;
                 background-image: url(Images/InteractiveIdentity/redtree.png);
-                background-size: cover;
-                background-position: top;
+                background-position: center;
                 background-repeat: no-repeat;
-                
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
+              
             .backgroundMask{
                 width: 100vw;
                 height: 100vh;
+                background-image: url("Images/InteractiveIdentity/redtree.png");
                 mask-image: url("Images/InteractiveIdentity/smallLogo.svg");
                 transform: scale(120%);
                 mask-position: center;
                 mask-repeat: no-repeat;
-                mask-size: cover;
+                mask-size: contain;
             }
-            
+            .colorMask{
+                background-color: red;
+            }
+            @media (orientation: landscape) {
+                .logoOne {
+                    background-size: contain;
+                }
+                .backgroundMask{ 
+                  transform: scale(120%);
+                }
+            }
+
+            @media (orientation: portrait) {
+                .logoOne {
+                    background-size: cover;
+                }
+                .backgroundMask{ 
+                    transform: rotate(90deg) scale(160%);
+                   
+                top: 50%;
+                left: 50%;
+                }
+            }
+
 		</style>
 	</head>
 
 	<body>
 		<main>
             <div class="logoOne">
-                <div class=backgroundMask>
-                    <img src="Images/InteractiveIdentity/redtree.png">
-                 </div>
+              <div class="colorMask">
+                
+              </div>
+                <div class="backgroundMask"></div>
+                
 				<div class="logoTwo"></div>
+            </div>
 		</main>
 
         
 	</body>
     <script type="text/javascript">
         let logoOne = document.querySelector(".logoOne");
+        let backgroundMask = document.querySelector(".backgroundMask");
 
         let images = [
             "url('Images/InteractiveIdentity/redtree.png')",
             "url('Images/InteractiveIdentity/bwOrchid.png')",
-            "url('Images/InteractiveIdentity/LEAFY.png')",
+            "url('Images/InteractiveIdentity/whiteflower.png')",
             "url('Images/InteractiveIdentity/bluey.png')",
             "url('Images/InteractiveIdentity/greeny.png')"
         ];
@@ -69,6 +97,7 @@
         window.addEventListener("load", () => { 
             console.log("Selected image:", randomImage);
             logoOne.style.backgroundImage = randomImage;
+            backgroundMask.style.backgroundImage = randomImage;
         });
     </script>
 
