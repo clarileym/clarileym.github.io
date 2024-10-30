@@ -51,19 +51,19 @@
 
             @media (orientation: landscape) {
                 .logoOne {
-                  background-size: contain;
-                  
+                  width: 90vh;
+                  height: 90vh;
                 }
                 .backgroundMask{ 
-                  transform: scale(40%);
+                  transform: scale(30%);
                   
                 }
                 .overColorMask{
-                  transform: scale(40%);
+                  transform: scale(30%);
                 }
                 .mask-container {
-                width: 70vh;
-                height: 70vh;
+                width: 90vh;
+                height: 90vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -73,21 +73,25 @@
 
             @media (orientation: portrait) {
                 .logoOne {
-                    background-size: cover;
-                    display: flex;
+                  width: 70vh;
+                  height: 70vh;
                 }
                 .backgroundMask{ 
                     transform: rotate(90deg) scale(50%);
+                    width: 70vh;
+                  height: 70vh;
                 }
                 .overColorMask{
                   transform: rotate(90deg) scale(50%);
+                  width: 70vh;
+                  height: 70vh;
                 }
                 .mask-container {
                 width: 70vh;
                 height: 70vh;
                 display: flex;
                 align-items: center;
-                justify-content: start;
+                justify-content: end;
             }
                 }
 
