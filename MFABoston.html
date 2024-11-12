@@ -194,6 +194,7 @@
 
             colorMaskPaths.forEach((path) => {
                 let randomColorIndex = Math.floor(Math.random() * colors[randomNumber].length);
+                console.log(randomColorIndex);
                 let randomColor = colors[randomNumber][randomColorIndex];
                 let randomOpacity = opacity[randomNumber][randomColorIndex];
                 let randomBorderRadius = borderRadius[randomNumber][randomColorIndex];
@@ -203,6 +204,7 @@
                 logoOne.style.borderRadius = randomBorderRadius;
             });
         });
+        
        
         backgroundSlider.addEventListener("input", function () {
 				logoOne.style.opacity = `${this.value}%`;
