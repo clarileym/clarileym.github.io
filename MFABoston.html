@@ -15,9 +15,6 @@
 				align-items: center;
 				justify-content: center;
 			}
-         
-            
-            
             .logoOne{
                 width: 80vh;
                 height: 80vh;
@@ -27,13 +24,10 @@
                 box-shadow: 0px 0px 15px -5px black;
                 border: 10px solid white;
             }
-            
-              
             .mask-container{
                 position: relative;
                 width: 80vh;
                 height: 80vh;
-                
             }
             .logoContainer{
                 width: 80vh;
@@ -43,7 +37,6 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
-
             .backgroundMask{
                 width: 100%;
                 height: 100%;
@@ -55,11 +48,7 @@
                 background-repeat: repeat;
                 z-index: 1;
                 transform: scale(99%) translate(1.5%, 0);
-
-                
-                
             }
-
             .overColorMask svg {
                 width: 100%;
                 height: 100%;
@@ -69,13 +58,9 @@
                 stroke:white;
                 stroke-width: 3;
             }
-
-          
-
-           
-
 		</style>
 	</head>
+
 
 	<body>
 		<main>
@@ -134,8 +119,9 @@
             </div>
             <button id="noBackground">No Background</button>
             <button id="withBackground">With Background</button>
-           
 		</main>
+
+
 
         
 	</body>
@@ -194,7 +180,6 @@
 
             colorMaskPaths.forEach((path) => {
                 let randomColorIndex = Math.floor(Math.random() * colors[randomNumber].length);
-                console.log(randomColorIndex);
                 let randomColor = colors[randomNumber][randomColorIndex];
                 let randomOpacity = opacity[randomNumber][randomColorIndex];
                 let randomBorderRadius = borderRadius[randomNumber][randomColorIndex];
@@ -204,7 +189,6 @@
                 logoOne.style.borderRadius = randomBorderRadius;
             });
         });
-        
        
         backgroundSlider.addEventListener("input", function () {
 				logoOne.style.opacity = `${this.value}%`;
@@ -228,7 +212,5 @@
         logoOne.style.opacity = '100%';
         backgroundSlider.disabled = false;
       }
-
     </script>
-
 </html>
