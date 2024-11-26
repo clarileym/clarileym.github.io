@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p5.js Dual Brush</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.1/lib/p5.min.js"></script>
+</head>
+<body>
+    <script>
+    let bottomImg, topImg;
+    let brushStrokes = []; // For time-reliant brush strokes
+    let mouseBrushStrokes = []; // For mouse-dragged brush strokes
+    let currentSecond = -1; // To track second changes
+
+    function preload() {
+      // Preload the images
+      bottomImg = loadImage('Images/colorFood.jpg');
+      topImg = loadImage('Images/greeFood.jpg');
+    }
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight); // Fullscreen canvas
+      noCursor();
+      // Draw the initial top image, resized and cropped to fit the canvas
+      fitAndCropImage(topImg);
+    }
+
+    function draw() {
+      // Redraw the black-and-white image
+      fitAndCropImage(topImg);
+
+      // Get the current time
+      let sec = second();
+      let currentTime = millis();
+
+      // Handle time-reliant brush strokes
+      if (sec !== currentSecond) {
+        currentSecond = sec;
+
+        // Determine the next brush position
+        let brushX, brushY;
+        if (brushStrokes.length === 0) {
+          // Start from the center if no previous strokes
+          brushX = width / 2;
+          brushY = height / 2;
+        } else {
+          // Move slightly in a random direction from the last stroke
+          let lastStroke = brushStrokes[brushStrokes.length - 1];
+          brushX = constrain(lastStroke.x + random(-30, 30), 0, width);
+          brushY = constrain(lastStroke.y + random(-30, 30), 0, height);
+        }
+
+        // Add a new stroke to the history
+        brushStrokes.push({ x: brushX, y: brushY, timestamp: currentTime });
+
+        // Keep only strokes from the last minute
+        brushStrokes = brushStrokes.filter(stroke => currentTime - stroke.timestamp <= 60000);
+      }
+
+      // Render all visible time-reliant strokes
+      for (let stroke of brushStrokes) {
+        let sx = (stroke.x / width) * bottomImg.width;
+        let sy = (stroke.y / height) * bottomImg.height;
+        let sWidth = (20 / width) * bottomImg.width;
+        let sHeight = (20 / height) * bottomImg.height;
+        copy(bottomImg, sx, sy, sWidth, sHeight, stroke.x, stroke.y, 20, 20);
+      }
+
+      // Show the current time at the most recent time-reliant stroke
+      if (brushStrokes.length > 0) {
+        let latestStroke = brushStrokes[brushStrokes.length - 1];
+        fill(255);
+        textSize(16);
+        textAlign(CENTER, CENTER);
+        let h = hour();
+        let m = minute();
+        let s = second();
+        text(`${h}:${nf(m, 2)}:${nf(s, 2)}`, latestStroke.x, latestStroke.y);
+      }
+
+      // Handle mouse-dragged brush strokes
+      mouseBrushStrokes = mouseBrushStrokes.filter(stroke => currentTime - stroke.timestamp <= 60000);
+      for (let stroke of mouseBrushStrokes) {
+        let sx = (stroke.x / width) * bottomImg.width;
+        let sy = (stroke.y / height) * bottomImg.height;
+        let sWidth = (20 / width) * bottomImg.width;
+        let sHeight = (20 / height) * bottomImg.height;
+        copy(bottomImg, sx, sy, sWidth, sHeight, stroke.x, stroke.y, 20, 20);
+      }
+    }
+
+    function mouseDragged() {
+      // Add new mouse-dragged strokes
+      mouseBrushStrokes.push({ x: mouseX, y: mouseY, timestamp: millis() });
+    }
+
+    function fitAndCropImage(img) {
+      // Calculate aspect ratio to fit and crop the image to canvas
+      let imgAspect = img.width / img.height;
+      let canvasAspect = width / height;
+
+      let drawWidth, drawHeight, drawX, drawY;
+
+      if (imgAspect > canvasAspect) {
+        // Image is wider than canvas, crop horizontally
+        drawWidth = img.height * canvasAspect;
+        drawHeight = img.height;
+        drawX = (img.width - drawWidth) / 2;
+        drawY = 0;
+      } else {
+        // Image is taller than canvas, crop vertically
+        drawWidth = img.width;
+        drawHeight = img.width / canvasAspect;
+        drawX = 0;
+        drawY = (img.height - drawHeight) / 2;
+      }
+
+      image(img, 0, 0, width, height, drawX, drawY, drawWidth, drawHeight);
+    }
+    </script> 
+</body>
+</html>

@@ -100,6 +100,8 @@
         <span class="word">-EIGHT</span>
         <span class="word">-NINE</span>
         <span class="word">-TEN</span>
+        <span class="ampm">AM</span>
+        <span class="ampm">PM</span>
     </div>
 
     <script>
@@ -116,6 +118,7 @@
                             '-six', '-seven', '-eight', '-nine'];
         const teenWords = ['eleven', '-twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
                             'seventeen', 'eighteen', 'nineteen']
+        const ampm = ['AM', 'PM']
         const tensPlace = Math.floor(minutes / 10); // Extract the tens digit
         const onesPlace = minutes % 10; // Extract the ones digit
         const targetDash = '-';
@@ -145,14 +148,14 @@
     } else {
         timeOfDay = 'night';
     }
-    document.body.className = timeOfDay;
+    // document.body.className = timeOfDay;
 
     console.log('Hours:', hours);
     console.log('Minutes:', minutes);
 
 
     if (hours === 24 || hours === 0) {
-            hours = 0; // Handle 24:00 or 0:00 as "twelve"
+            hours = 0; // 24:00 or 0:00 as "twelve"
         } else {
             hours = hours % 12 || 12; // Convert to 12-hour format
         }
@@ -169,28 +172,28 @@
 
     if (tensPlace === 0 && onesPlace === 0) {
         // Highlight hour and "O'CLOCK" for full hours
-        highlightWords([hourWords[hours-1], "o'clock"]);
+        highlightWords([hourWords[hours], "o'clock"]);
     } else if (tensPlace === 0 && onesPlace > 0){
         // Highlight hour and "oh" if the minutes are from 1-9
         highlightWords([hourWords[hours], "oh", onesWords[onesPlace - 1]]);  
     } else if (tensPlace === 1 && onesPlace === 1){
-        highlightWords([hourWords[hours - 1], teenWords[onesPlace - 1]])
+        highlightWords([hourWords[hours], teenWords[onesPlace - 1]])
     }else if (tensPlace === 1 && onesPlace === 2){
-        highlightWords([hourWords[hours - 1], teenWords[onesPlace - 1]])
+        highlightWords([hourWords[hours], teenWords[onesPlace - 1]])
     }else if (tensPlace === 1 && onesPlace === 3){
-        highlightWords([hourWords[hours - 1], teenWords[onesPlace - 1]])
+        highlightWords([hourWords[hours], teenWords[onesPlace - 1]])
     }else if (tensPlace === 1 && onesPlace === 4){
-        highlightWords([hourWords[hours - 1], teenWords[onesPlace - 1]])
+        highlightWords([hourWords[hours], teenWords[onesPlace - 1]])
     }else if (tensPlace === 1 && onesPlace === 5){
-        highlightWords([hourWords[hours - 1], teenWords[onesPlace - 1]])
+        highlightWords([hourWords[hours], teenWords[onesPlace - 1]])
     }else if (tensPlace === 1 && onesPlace === 6){
-        highlightWords([hourWords[hours - 1], teenWords[onesPlace - 1]])
+        highlightWords([hourWords[hours], teenWords[onesPlace - 1]])
     }else if (tensPlace === 1 && onesPlace === 7){
-        highlightWords([hourWords[hours - 1], teenWords[onesPlace - 1]])
+        highlightWords([hourWords[hours], teenWords[onesPlace - 1]])
     }else if (tensPlace === 1 && onesPlace === 8){
-        highlightWords([hourWords[hours - 1], teenWords[onesPlace - 1]])
+        highlightWords([hourWords[hours], teenWords[onesPlace - 1]])
     }else if (tensPlace === 1 && onesPlace === 9){
-        highlightWords([hourWords[hours - 1], teenWords[onesPlace - 1]])
+        highlightWords([hourWords[hours], teenWords[onesPlace - 1]])
     }else {
         // Highlight hour, tens, and ones if applicable
         const wordsToHighlight = [hourWords[hours], tensWords[tensPlace]];
