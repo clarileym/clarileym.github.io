@@ -6,7 +6,7 @@
     <title>Word Clock</title>
     <style>
         /* General Reset and Body Styles */
-        html body{
+        html body {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -14,10 +14,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            
         }
-
-        /* Word Clock Grid Container */
+        
         .word-clock {
             display: flex;
             flex-wrap: wrap;
@@ -27,16 +25,26 @@
             width: 70%; /* Adjust width to fit screen */
             height: 70%; /* Make it a square */
             text-transform: uppercase;
-            font-size: 3rem;
+            font-size: calc(1vh + 3vw);
             line-height: 1.5;
             text-align: center;
             max-width: 100%;
+            margin-top: 35px;
         }
 
         /* General Word Styles */
         .word {
-            color: #555; 
+            color: #555;
+            padding: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
         }
+        .ampm{
+            color: #555;
+            padding: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+            font-size: calc(1vh + 4vw)
+        }
+        
 
         /* Highlighted Words */
         .highlight {
@@ -61,9 +69,11 @@
             color: #EAEAEA;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
 <body>
     <div class="word-clock" id="word-clock">
+    <div class="words-only">
         <span class="word">ONE</span>
         <span class="word">TWO</span>
         <span class="word">THREE</span>
@@ -100,75 +110,152 @@
         <span class="word">-EIGHT</span>
         <span class="word">-NINE</span>
         <span class="word">-TEN</span>
+    </div>
+    <div class="separate">
         <span class="ampm">AM</span>
         <span class="ampm">PM</span>
     </div>
+</div>
 
     <script>
-     
-        
-    function updateWordClock() {
-        const date = new Date();
-        let hours = date.getHours();
-        const minutes = date.getMinutes();
-        const words = document.querySelectorAll('.word');
-        const hourWords = ['twelve', 'one', 'two', 'three', 'four', 'five', 
-                            'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
-        const onesWords = ['-one', '-two', '-three', '-four', '-five', 
-                            '-six', '-seven', '-eight', '-nine'];
-        const teenWords = ['eleven', '-twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
-                            'seventeen', 'eighteen', 'nineteen']
-        const ampm = ['AM', 'PM']
-        const tensPlace = Math.floor(minutes / 10); // Extract the tens digit
-        const onesPlace = minutes % 10; // Extract the ones digit
-        const targetDash = '-';
+        let words;
+        let ampms;
+        let hoveredWordIndex = -1;  // Track hovered index for .word
+        let hoveredAmpmIndex = -1;
+        let gradientStartColor;
+        let gradientEndColor;
 
+        function setup() {
+    noCanvas(); // No need for an actual canvas
+    words = document.querySelectorAll('.word');
+    ampms = document.querySelectorAll('.ampm');
 
+    // Event listeners for .word elements
+    words.forEach((word, index) => {
+        word.addEventListener('mouseover', () => handleMouseOver(index, false)); // `false` for words
+        word.addEventListener('mouseout', () => handleMouseOut(false));
+    });
 
-    // Reset all word highlights
-    words.forEach(word => word.classList.remove('highlight'));
+    // Event listeners for .ampm elements
+    ampms.forEach((ampm, index) => {
+        ampm.addEventListener('mouseover', () => handleMouseOver(index, true)); // `true` for AM/PM
+        ampm.addEventListener('mouseout', () => handleMouseOut(true));
+    });
+}
 
-    // Highlight the relevant words
-    const highlightWords = (wordList) => {
-        const elements = document.querySelectorAll('.word');
-        wordList.forEach((word) => {
-            elements.forEach(element => {
-                if (element.textContent.toLowerCase() === word) {
-                    element.classList.add('highlight');
-                }
-             });
-        });
-    };
-        // Determine the time of day
-    let timeOfDay = '';
-    if (hours >= 5 && hours < 12) {
-        timeOfDay = 'morning';
-    } else if (hours >= 12 && hours < 18) {
-        timeOfDay = 'afternoon';
+function handleMouseOver(index, isAmpm) {
+    if (isAmpm) {
+        hoveredAmpmIndex = index;
+        hoveredWordIndex = -1; // Reset word hover
     } else {
-        timeOfDay = 'night';
+        hoveredWordIndex = index;
+        hoveredAmpmIndex = -1; // Reset AM/PM hover
     }
-    // document.body.className = timeOfDay;
 
-    console.log('Hours:', hours);
-    console.log('Minutes:', minutes);
+    gradientStartColor = color(random(255), random(255), random(255)); // Random start color
+    gradientEndColor = color(random(255), random(255), random(255)); // Random end color
 
+    updateWordColors();
+    updateAmpmColors();
+}
 
-    if (hours === 24 || hours === 0) {
-            hours = 0; // 24:00 or 0:00 as "twelve"
+function handleMouseOut(isAmpm) {
+    if (isAmpm) {
+        hoveredAmpmIndex = -1;
+    } else {
+        hoveredWordIndex = -1;
+    }
+
+    updateWordColors();
+    updateAmpmColors();
+}
+
+function updateWordColors() {
+    words.forEach((word, index) => {
+        if (hoveredWordIndex === index) {
+            const gradient = `linear-gradient(45deg, ${gradientStartColor.toString()}, ${gradientEndColor.toString()})`;
+            word.style.background = gradient;
+            word.style.color = 'black'; // Highlight text
         } else {
-            hours = hours % 12 || 12; // Convert to 12-hour format
+            word.style.background = 'none';
+            word.style.color = ''; // Default
         }
+    });
+}
 
-    // Mapping for the tens place
-    const tensWords = {
-        0: "o'clock",
-        1: "-ten",
-        2: "twenty",
-        3: "thirty",
-        4: "forty",
-        5: "fifty"
-    };
+function updateAmpmColors() {
+    ampms.forEach((ampm, index) => {
+        if (hoveredAmpmIndex === index) {
+            const gradient = `linear-gradient(45deg, ${gradientStartColor.toString()}, ${gradientEndColor.toString()})`;
+            ampm.style.background = gradient;
+            ampm.style.color = 'black'; // Highlight text
+        } else {
+            ampm.style.background = 'none';
+            ampm.style.color = ''; // Default
+        }
+    });
+}
+
+
+        function updateWordClock() {
+            const date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let words = document.querySelectorAll('.word');
+            const hourWords = ['twelve', 'one', 'two', 'three', 'four', 'five', 
+                                'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+            const onesWords = ['-one', '-two', '-three', '-four', '-five', 
+                                '-six', '-seven', '-eight', '-nine'];
+            const teenWords = ['eleven', '-twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
+                                'seventeen', 'eighteen', 'nineteen'];
+            let ampms = document.querySelectorAll('.ampm');
+            const ampmWords = ['AM', 'PM'];
+
+            const tensPlace = Math.floor(minutes / 10); // Extract the tens digit
+            const onesPlace = minutes % 10; // Extract the ones digit
+            const targetDash = '-';
+            const tensWords = {
+                0: "o'clock",
+                1: "-ten",
+                2: "twenty",
+                3: "thirty",
+                4: "forty",
+                5: "fifty"
+            };
+
+            // Reset all word highlights
+            words.forEach(word => word.classList.remove('highlight'));
+            ampms.forEach(ampm => ampm.classList.remove('highlight'));
+
+            // Highlight the relevant words
+            const highlightWords = (wordList) => {
+                const elements = document.querySelectorAll('.word');
+                wordList.forEach((word) => {
+                    elements.forEach(element => {
+                        if (element.textContent.toLowerCase() === word) {
+                            element.classList.add('highlight');
+                        }
+                    });
+                });
+            };
+
+            // Determine the time of day
+            let timeOfDay = '';
+            if (hours >= 5 && hours < 12) {
+                timeOfDay = 'morning';
+            } else if (hours >= 12 && hours < 18) {
+                timeOfDay = 'afternoon';
+            } else {
+                timeOfDay = 'night';
+            }
+            document.body.className = timeOfDay;
+
+            if (hours === 24 || hours === 0) {
+                hours = 0; // 24:00 or 0:00 as "twelve"
+            } else {
+                hours = hours % 12 || 12; // Convert to 12-hour format
+            }
+
 
     if (tensPlace === 0 && onesPlace === 0) {
         // Highlight hour and "O'CLOCK" for full hours
