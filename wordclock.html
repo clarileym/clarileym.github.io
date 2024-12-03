@@ -118,14 +118,16 @@
 </div>
 
     <script>
-        let words;
-        let ampms;
-        let hoveredWordIndex = -1;  // Track hovered index for .word
-        let hoveredAmpmIndex = -1;
-        let gradientStartColor;
-        let gradientEndColor;
+let words;
+let ampms;
+let hoveredWordIndex = -1;  // Track hovered index for .word
+let hoveredAmpmIndex = -1;
+let gradientStartColor;
+let gradientEndColor;
+let interval;
+let isHovered = false;  // Tracks if a word is being hovered over
 
-        function setup() {
+function setup() {
     noCanvas(); // No need for an actual canvas
     words = document.querySelectorAll('.word');
     ampms = document.querySelectorAll('.ampm');
@@ -141,9 +143,31 @@
         ampm.addEventListener('mouseover', () => handleMouseOver(index, true)); // `true` for AM/PM
         ampm.addEventListener('mouseout', () => handleMouseOut(true));
     });
+    startGradientHighlight();  // Start gradient highlights with interval
+}
+
+function startGradientHighlight() {
+    if (interval) clearInterval(interval); 
+    interval = setInterval(() => {
+        if (!isHovered) {
+            applyRandomGradient();
+        }
+    }, 255);  // Every 1/3 second
+}
+
+function applyRandomGradient() {
+    hoveredWordIndex = Math.floor(Math.random() * words.length);
+    hoveredAmpmIndex = -1;
+
+    gradientStartColor = color(random(255), random(255), random(255)); // Random start color
+    gradientEndColor = color(random(255), random(255), random(255));   // Random end color
+
+    updateWordColors();
 }
 
 function handleMouseOver(index, isAmpm) {
+    isHovered = true;  // Pause random selection
+    clearInterval(interval);  // Stop the interval
     if (isAmpm) {
         hoveredAmpmIndex = index;
         hoveredWordIndex = -1; // Reset word hover
@@ -160,6 +184,7 @@ function handleMouseOver(index, isAmpm) {
 }
 
 function handleMouseOut(isAmpm) {
+    isHovered = false;  // Resume random selection
     if (isAmpm) {
         hoveredAmpmIndex = -1;
     } else {
@@ -168,6 +193,7 @@ function handleMouseOut(isAmpm) {
 
     updateWordColors();
     updateAmpmColors();
+    startGradientHighlight(); // Restart interval
 }
 
 function updateWordColors() {
