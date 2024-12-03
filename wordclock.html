@@ -117,7 +117,7 @@
     </div>
 </div>
 
-    <script>
+<script>
 let words;
 let ampms;
 let hoveredWordIndex = -1;  // Track hovered index for .word
@@ -219,9 +219,9 @@ function updateAmpmColors() {
             ampm.style.background = 'none';
             ampm.style.color = ''; // Default
         }
-    });
+         });
 }
-
+  
 
         function updateWordClock() {
             const date = new Date();
@@ -236,6 +236,8 @@ function updateAmpmColors() {
                                 'seventeen', 'eighteen', 'nineteen'];
             let ampms = document.querySelectorAll('.ampm');
             const ampmWords = ['AM', 'PM'];
+            
+           
 
             const tensPlace = Math.floor(minutes / 10); // Extract the tens digit
             const onesPlace = minutes % 10; // Extract the ones digit
@@ -248,11 +250,14 @@ function updateAmpmColors() {
                 4: "forty",
                 5: "fifty"
             };
+   
 
             // Reset all word highlights
             words.forEach(word => word.classList.remove('highlight'));
             ampms.forEach(ampm => ampm.classList.remove('highlight'));
 
+           
+            
             // Highlight the relevant words
             const highlightWords = (wordList) => {
                 const elements = document.querySelectorAll('.word');
@@ -265,6 +270,7 @@ function updateAmpmColors() {
                 });
             };
 
+        
             // Determine the time of day
             let timeOfDay = '';
             if (hours >= 5 && hours < 12) {
@@ -275,13 +281,26 @@ function updateAmpmColors() {
                 timeOfDay = 'night';
             }
             document.body.className = timeOfDay;
+            
+            const isAM = hours < 12; // Hours from 0 to 11:59 are AM
+
+            if (isAM) {
+                ampms[0].classList.add('highlight'); // AM
+            }
+            else if (hours === 24 && minutes > 0){
+                ampms[0].classList.add('highlight'); // PM
+            }
+             else {
+                ampms[1].classList.add('highlight'); // PM
+            }
+            
 
             if (hours === 24 || hours === 0) {
                 hours = 0; // 24:00 or 0:00 as "twelve"
             } else {
                 hours = hours % 12 || 12; // Convert to 12-hour format
             }
-
+            
 
     if (tensPlace === 0 && onesPlace === 0) {
         // Highlight hour and "O'CLOCK" for full hours
@@ -338,9 +357,6 @@ function updateAmpmColors() {
             words[i].innerHTML = modifiedHTML;
         }
     }
-
-
-    
 
     // Debugging logs
     console.log('Hours:', hours);
