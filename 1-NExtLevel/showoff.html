@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Off Game</title>
+
+<!-- CSS SECTION= -->
+    <style type="text/css">
+
+      body{
+        margin:10px;
+        height: 100%;
+        background-color: black;
+
+      }
+      svg{
+            margin:20px;
+            border-radius: 10px;
+
+            /* Source:Josh W Comeau: Designing Beautiful Shadows in CSS */
+            box-shadow:
+              0 1px 1px hsl(0deg 0% 0% / 0.075),
+              0 2px 2px hsl(0deg 0% 0% / 0.075),
+              0 4px 4px hsl(0deg 0% 0% / 0.075),
+              0 8px 8px hsl(0deg 0% 0% / 0.075),
+              0 16px 16px hsl(0deg 0% 0% / 0.075)
+            ;
+      }
+        .container{
+            height: 45vw;
+            border-radius: 10px;
+
+            display: flex;
+            justify-content: space-evenly;
+            align-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin:auto 20px;
+            background-color:#F2E3BC;
+
+            /* Source:Josh W Comeau: Designing Beautiful Shadows in CSS */
+            box-shadow:
+              0 1px 1px hsl(0deg 0% 0% / 0.075),
+              0 2px 2px hsl(0deg 0% 0% / 0.075),
+              0 4px 4px hsl(0deg 0% 0% / 0.075),
+              0 8px 8px hsl(0deg 0% 0% / 0.075),
+              0 16px 16px hsl(0deg 0% 0% / 0.075)
+            ;
+
+          
+        }
+        #message{
+          display: flex;
+
+          width:30vw;
+          height: 30vw;
+          align-items: center;
+          justify-content: center;
+          margin:15px;
+          border-radius: 10px;
+          background-color:#C19875;
+        
+          /* Source:Josh W Comeau: Designing Beautiful Shadows in CSS */
+          box-shadow:
+              0 1px 1px hsl(0deg 0% 0% / 0.075),
+              0 2px 2px hsl(0deg 0% 0% / 0.075),
+              0 4px 4px hsl(0deg 0% 0% / 0.075),
+              0 8px 8px hsl(0deg 0% 0% / 0.075),
+              0 16px 16px hsl(0deg 0% 0% / 0.075)
+            ;
+
+        }
+
+        #textbox{
+          width:20vw;
+          display: flex;
+          flex-direction: column;
+          gap: 3vh;
+
+          color: white;
+          font-family: sans-serif;
+          font-weight: 600;
+          font-style: italic;
+          font-size: 2vw;
+          text-align: center;
+        }
+        #controls{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+       
+        @media (orientation:portrait){
+          .container{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            height: 90vh;
+          }
+          #controls{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          }
+          #message{
+            display: flex;
+            width:60vw;
+            height: 30vw;
+          }
+          svg{
+            margin:20px;
+            border-radius: 10px;
+            
+          }
+          #textbox{
+            font-size: 3vw;
+            width:30vw;
+          }
+          }
+    </style>
+</head>
+<body>
+<!-- HTML SECTION -->
+ <div class="container">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" version="1.1" viewBox="0 0 576 576">
+        <defs>
+          <style>
+            #horizontal, #vertical {
+              stroke:white;
+              stroke-miterlimit: 10;
+              stroke-width: 4px;
+            }
+            .square{
+                fill:black;
+            }
+            #circles {
+              fill: grey;
+            }
+          </style>
+        </defs>
+        <!-- Generator: Adobe Illustrator 28.7.1, SVG Export Plug-In . SVG Version: 1.2.0 Build 142)  -->
+        <g>
+          <g id="Layer_1">
+            <rect class="square" width="576" height="576"/>
+            <g id="vertical">
+              <line class="ls-1" x1="143.9" y1=".1" x2="143.9" y2="574.6"/>
+              <line class="ls-2" x1="71.9" y1=".1" x2="71.9" y2="574.6"/>
+              <line class="ls-3" x1="214.3" y1=".1" x2="214.3" y2="574.6"/>
+              <line class="ls-4" x1="288" y1="1.5" x2="288" y2="576"/>
+              <line class="ls-5" x1="358.8" y1=".5" x2="358.8" y2="575"/>
+              <line class="ls-6" x1="431.3" y1="0" x2="431.3" y2="574.5"/>
+              <line class="ls-7" x1="502.6" y1="0" x2="502.6" y2="574.5"/>
+            </g>
+            <g id="horizontal">
+              <line class="ls-8" x1=".1" y1="431.4" x2="574.6" y2="431.4"/>
+              <line class="ls-9" x1=".1" y1="503.4" x2="574.6" y2="503.4"/>
+              <line class="ls-10" x1=".1" y1="361" x2="574.6" y2="361"/>
+              <line class="ls-11" x1="1.5" y1="287.3" x2="576" y2="287.3"/>
+              <line class="ls-12" x1=".5" y1="216.5" x2="575" y2="216.5"/>
+              <line class="ls-13" y1="144" x2="574.5" y2="144"/>
+              <line class="ls-14" x1="0" y1="72.6" x2="574.5" y2="72.6"/>
+            </g>
+            <g id="circles">
+              <g>
+                <circle class="circle cls-1" cx="35.2" cy="37" r="24.9"/>
+                <circle class="circle cls-2" cx="107.3" cy="37" r="24.9"/>
+                <circle class="circle cls-3" cx="180.3" cy="37" r="24.9"/>
+                <circle class="circle cls-4" cx="252.4" cy="37" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-5" cx="322.7" cy="37" r="24.9"/>
+                <circle class="circle cls-6" cx="394.8" cy="37" r="24.9"/>
+                <circle class="circle cls-7" cx="467.8" cy="37" r="24.9"/>
+                <circle class="circle cls-8" cx="539.8" cy="37" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-9" cx="34.9" cy="108.2" r="24.9"/>
+                <circle class="circle cls-10" cx="107" cy="108.2" r="24.9"/>
+                <circle class="circle cls-11" cx="180" cy="108.2" r="24.9"/>
+                <circle class="circle cls-12" cx="252.1" cy="108.2" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-13" cx="322.4" cy="108.2" r="24.9"/>
+                <circle class="circle cls-14" cx="394.5" cy="108.2" r="24.9"/>
+                <circle class="circle cls-15" cx="467.5" cy="108.2" r="24.9"/>
+                <circle class="circle cls-16" cx="539.6" cy="108.2" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-17" cx="34.9" cy="179.5" r="24.9"/>
+                <circle class="circle cls-18" cx="107" cy="179.5" r="24.9"/>
+                <circle class="circle cls-19" cx="180" cy="179.5" r="24.9"/>
+                <circle class="circle cls-20" cx="252.1" cy="179.5" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-21" cx="322.4" cy="179.5" r="24.9"/>
+                <circle class="circle cls-22" cx="394.5" cy="179.5" r="24.9"/>
+                <circle class="circle cls-23" cx="467.5" cy="179.5" r="24.9"/>
+                <circle class="circle cls-24" cx="539.6" cy="179.5" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-25" cx="35.1" cy="252.7" r="24.9"/>
+                <circle class="circle cls-26" cx="107.1" cy="252.7" r="24.9"/>
+                <circle class="circle cls-27" cx="180.2" cy="252.7" r="24.9"/>
+                <circle class="circle cls-28" cx="252.2" cy="252.7" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-29" cx="322.6" cy="252.7" r="24.9"/>
+                <circle class="circle cls-30" cx="394.6" cy="252.7" r="24.9"/>
+                <circle class="circle cls-31" cx="467.7" cy="252.7" r="24.9"/>
+                <circle class="circle cls-32" cx="539.7" cy="252.7" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-33" cx="34.8" cy="324" r="24.9"/>
+                <circle class="circle cls-34" cx="106.8" cy="324" r="24.9"/>
+                <circle class="circle cls-35" cx="179.9" cy="324" r="24.9"/>
+                <circle class="circle cls-36" cx="251.9" cy="324" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-37" cx="322.3" cy="324" r="24.9"/>
+                <circle class="circle cls-38" cx="394.3" cy="324" r="24.9"/>
+                <circle class="circle cls-39" cx="467.4" cy="324" r="24.9"/>
+                <circle class="circle cls-40" cx="539.4" cy="324" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-41" cx="34.8" cy="395.2" r="24.9"/>
+                <circle class="circle cls-42" cx="106.8" cy="395.2" r="24.9"/>
+                <circle class="circle cls-43" cx="179.9" cy="395.2" r="24.9"/>
+                <circle class="circle cls-44" cx="251.9" cy="395.2" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-45" cx="322.3" cy="395.2" r="24.9"/>
+                <circle class="circle cls-46" cx="394.3" cy="395.2" r="24.9"/>
+                <circle class="circle cls-47" cx="467.4" cy="395.2" r="24.9"/>
+                <circle class="circle cls-48" cx="539.4" cy="395.2" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-49" cx="35.1" cy="468.4" r="24.9"/>
+                <circle class="circle cls-50" cx="107.1" cy="468.4" r="24.9"/>
+                <circle class="circle cls-51" cx="180.2" cy="468.4" r="24.9"/>
+                <circle class="circle cls-52" cx="252.2" cy="468.4" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-53" cx="322.6" cy="468.4" r="24.9"/>
+                <circle class="circle cls-54" cx="394.6" cy="468.4" r="24.9"/>
+                <circle class="circle cls-55" cx="467.7" cy="468.4" r="24.9"/>
+                <circle class="circle cls-56" cx="539.7" cy="468.4" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-57" cx="34.8" cy="539.7" r="24.9"/>
+                <circle class="circle cls-58" cx="106.8" cy="539.7" r="24.9"/>
+                <circle class="circle cls-59" cx="179.9" cy="539.7" r="24.9"/>
+                <circle class="circle cls-60" cx="251.9" cy="539.7" r="24.9"/>
+              </g>
+              <g>
+                <circle class="circle cls-61" cx="322.3" cy="539.7" r="24.9"/>
+                <circle class="circle cls-62" cx="394.3" cy="539.7" r="24.9"/>
+                <circle class="circle cls-63" cx="467.4" cy="539.7" r="24.9"/>
+                <circle class="circle cls-64" cx="539.4" cy="539.7" r="24.9"/>
+              </g>
+          </g>
+        </g>
+  </svg>
+  <div id="controls">
+  <div id="message">
+    <div id=textbox>
+      <div id="message1">Start</div>
+      <div id="message2">the</div>
+      <div id="message3">game!</div>
+    </div>
+  </div>
+  </div> 
+</div>
+
+<!-- JAVASCRIPT SECTION -->
+   <script>
+       // Set the game
+       const circles = document.querySelectorAll('.circle');
+       let ships = []; // ship positions
+       let misses = 0;
+       let hits = 0;
+
+       // Randomly place 20 ships
+       function placeShips() {
+           ships = [];
+           const randomPlaces = [];
+           while (randomPlaces.length < 20) {
+               const rand = Math.floor(Math.random() * circles.length);
+               if (!randomPlaces.includes(rand)) {
+                   randomPlaces.push(rand);
+                   ships.push(rand);
+               }
+           }
+       }
+
+       // Start the game
+       function resetGame() {
+           placeShips();
+           misses = 0;
+           hits = 0;
+           document.getElementById('message1').textContent = `HOW TO`;
+           document.getElementById('message2').textContent = `Click the circles to find all 20 ships`;
+           document.getElementById('message3').textContent = `If you miss 30 times, it's GAME OVER`;
+           circles.forEach(circle => {
+               circle.style.fill = 'grey'; // Reset circle color
+           });
+       }
+
+       // Handle player click on a circle
+       function handleClick(event) {
+           const index = Array.from(circles).indexOf(event.target);
+           
+           if (ships.includes(index)) {
+               event.target.style.fill = 'green'; // Hit!
+               hits++;
+           } else {
+               event.target.style.fill = 'red'; // Miss!
+               misses++;
+           }
+           
+           // Update the message with hits and misses
+           document.getElementById('message1').textContent = `HITS: ${hits}`;
+           document.getElementById('message2').textContent = `MISSES: ${misses}`;
+           document.getElementById('message3').textContent = '';
+           document.getElementById('message1').style.fontSize = `3vw`;
+           document.getElementById('message2').style.fontSize = `3vw`;
+
+           // Check if game over
+           if (misses >= 30) {
+               document.getElementById('message1').textContent = 'GAME OVER!';
+               document.getElementById('message1').style.fontSize = '3vw';
+               document.getElementById('message2').textContent = `${hits} / 20 Ships Found`;
+               document.getElementById('message2').style.fontSize = `2vw`;
+               document.getElementById('message').style.backgroundColor = 'red';
+               setTimeout(() => {
+                   resetGame();
+               }, 10000);
+           }else if (hits ==20){
+            document.getElementById('message1').textContent = 'WINNER!';
+            document.getElementById('message2').textContent = "YOU SUNK ALL THE SHIPS!";
+            document.getElementById('message2').style.fontSize = `2vw`;
+            document.getElementById('message').style.backgroundColor = 'green';
+
+               setTimeout(() => {
+                   resetGame();
+               }, 10000);
+           }
+       }
+
+       // Add event listeners to each circle
+       circles.forEach(circle => {
+           circle.addEventListener('click', handleClick);
+       });
+
+       // Start the game
+       resetGame();
+   </script>
+</body>
+</html>
