@@ -2,9 +2,9 @@
 // Space-filling algorithms 🍄 #WCCChallenge
 
 import { mountFlex } from "https://cdn.jsdelivr.net/npm/p5.flex@0.2.0/src/p5.flex.min.mjs";
-import { mountControl } from "./Controls.js";
+import { mountControl } from "1-NExtLevel/controls.js";
 import { createNoise3D } from "https://cdn.skypack.dev/simplex-noise@4.0.0";
-import { vert, TexFrag, BlurFrag, GrainFrag, MixFrag } from "./shader.js";
+import { vert, TexFrag, BlurFrag, GrainFrag, MixFrag } from "1-NExtLevel/shader.js";
 
 mountFlex(p5);
 mountControl(p5);
