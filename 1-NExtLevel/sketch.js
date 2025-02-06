@@ -133,17 +133,28 @@ new p5((p) => {
 
   const mapImageToPixels = () => {
     img.loadPixels();
+
+    if (img.pixels.length === 0) return; // Ensure pixels are loaded
+
     p.beginShape();
 
-    for (let y = 0; y < img.height; y += 10) {
-      for (let x = 0; x < img.width; x += 10) {
-        const index = (x + y * img.width) * 4;
+    const step = 10; // Sampling interval
+    const imgWidth = img.width;
+    const imgHeight = img.height;
+
+    for (let y = 0; y < img.Height; y += 10) {
+      for (let x = 0; x < img.Width; x += 10) {
+        const index = (x + y * img.Width) * 4;
+
+        if (index + 3 >= img.pixels.length) continue;
+
+
         const r = img.pixels[index];
         const g = img.pixels[index + 1];
         const b = img.pixels[index + 2];
 
         p.stroke(r, g, b);
-        p.point(x, y);
+        p.point((x / imgWidth) * WIDTH, (y / imgHeight) * HEIGHT);
       }
     }
 
