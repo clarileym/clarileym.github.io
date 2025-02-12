@@ -27,14 +27,19 @@
         }
         
         function setup() {
-            createCanvas(windowWidth, windowHeight);
+            createCanvas(800, 600);
             imageMode(CENTER);
 			background(255, 0, 0); // Test with a red background
         }
         
         function draw() {
+			console.log("Drawing frame: ", frameCount);
             background(248, 241, 229);
-            image(constitution, width / 2, height / 2, width * 0.8, height * 0.9);
+            if (constitution) {
+        		image(constitution, width / 2, height / 2, width * 0.8, height * 0.9);
+   			} else {
+        		console.log("Image not loaded yet");
+    		}
             
             if (frameCounter % 30 === 0) {
                 scribbles.push(new Scribble(random(width * 0.2, width * 0.8), random(height * 0.1, height * 0.9)));
