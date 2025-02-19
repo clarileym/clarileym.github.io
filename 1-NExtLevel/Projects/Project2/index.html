@@ -10,52 +10,16 @@
         <title>Defacing the Constitution</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+ 
     </head>
     <body>
-        <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background-color: #f8f1e5;
-        }
-        canvas {
-            display: block;
-        }
-    </style>
-</head>
-<body>
-    <script>
-        let scribbles = [];
-        let constitution;
-        let frameCounter = 0;
-        
-        function preload() {
-            constitution = loadImage('photos/Constitution.jpeg');
-        }
-        
-        function setup() {
-            createCanvas(800, 600);
-            imageMode(CENTER);
-
-            // noLoop();
-        }
-        
-        function draw() {
-
-// control the frequency of when to draw each scribble
-
-// if it's bouncing all over the place, consider implementing noLoop and using a regular JS counter for adding in the videos.
-
-        	image(constitution, width / 2, height / 2, width * 0.8, height * 0.9);
-        
-        }
-    </script>
-
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js" async defer></script>
+        <script src="sketch.js" async defer></script>
      <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js" async defer></script>
 </body>
 </html>
