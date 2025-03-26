@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MAKE Paper</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="container" id="container">
+    <div id="logo">
+      <!-- <img src="Photos/FinalWords/MarkWord-01.png"> -->
+      <div class="letter" id="M">
+        <!-- <img id="MOnly" src="Photos/MPieces/M_Only.png"> -->
+        <div class="M1" id="M1">
+          <!-- <img src="Photos/MPieces/M_-01.png"> -->
+        </div>
+        <div class="M2" id="M2">
+          <!-- <img src="Photos/MPieces/M_-02.png"> -->
+        </div>
+        <div class="M3" id="M3">
+          <!-- <img src="Photos/MPieces/M_-03.png"> -->
+        </div>
+        <div class="M4" id="M4">
+          <!-- <img src="Photos/MPieces/M_-04.png"> -->
+        </div>
+      </div>
+      <div class="letter" id="A">
+        <div class="A1" id="A1">
+          <!-- <img src="Photos/APieces/A_-01.png"> -->
+        </div>
+        <div class="A2" id="A2">
+          <!-- <img src="Photos/APieces/A_-02.png"> -->
+        </div>
+        <div class="A3" id="A3">
+          <!-- <img src="Photos/APieces/A_-03.png"> -->
+        </div>
+      </div>
+      <div class="letter" id="K">
+        <div class="K1" id="K1">
+          <!-- <img src="Photos/KPieces/K_-01.png"> -->
+        </div>
+        <div class="K2" id="K2">
+          <!-- <img src="Photos/KPieces/K_-02.png"> -->
+        </div>
+        <div class="K3" id="K3">
+          <!-- <img src="Photos/KPieces/K_-03.png"> -->
+        </div>
+      </div>
+      <div class="letter" id="E">
+        <!-- <img id="EOnly" src="Photos/EPieces/E_Only.png"> -->
+        <div class="E1" id="E1">
+          <!-- <img src="Photos/EPieces/E_-01.png"> -->
+        </div>
+        <div class="E2" id="E2">
+          <!-- <img src="Photos/EPieces/E_-02.png"> -->
+        </div>
+        <div class="E3" id="E3">
+           <!-- <img src="Photos/EPieces/E_-03.png"> -->
+        </div>
+        <div class="E4" id="E4">
+          <!-- <img src="Photos/EPieces/E_-04.png"> -->
+        </div>
+      </div>
+      <div class="letter" id="colon">
+        <img src="Photos/Colon.png">
+      </div>
+    </div>
+  </div>
+
+      <script>
+        const body = document.body;
+        const container = document.getElementById('container');
+        let intervalPieces;
+        const fallbackTemp = 30;
+        const fallbackWindSpeed = 5;
+
+        const url = 'https://open-weather13.p.rapidapi.com/city/new york/EN';
+        const options = {
+          method: 'GET',
+          headers: {
+            'x-rapidapi-key': 'a5f5370ef9mshe0b303f5f8e61c9p1587acjsn1eba347bc235',
+            'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
+          }
+        };
+
+        
+
+        (async () => {
+        try {
+          const response = await fetch(url, options);
+          const result = await response.text();
+          const dataObject = JSON.parse(result);
+          const currentTemp = dataObject.main?.temp ?? fallbackTemp;
+          const windSpeed = dataObject.wind?.speed ?? fallbackWindSpeed;
+          //STEP ONE: FIGURE OUT THE RANGE OF THE NUMBER YOU HAVE
+          console.log(dataObject); //RANGE BETWEEN -15, 106
+
+          //STEP 2: FIGURE OUT THE RANGE OF THE NUMBER YOU WANT
+
+          //BOTTOM RANGE: hsl(209. 100%. 92%)
+          //TOP RANGE: hsl(0, 100%, 50%)
+
+          function map(value, low1, high1, low2, high2) {
+          return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+          }
+
+          const saturation = map(currentTemp, -15, 106, 0, 50);
+          intervalPieces = map(windSpeed, 0, 50, 20000, 5000);
+
+          console.log("intervalPieces:", intervalPieces);
+          console.log("windSpeed:", windSpeed);
+          console.log("currentTemp:", currentTemp);
+          console.log("saturation Value", saturation);
+
+          container.style.filter = `saturate(${saturation})`;
+
+          imageInterval();
+          
+        } catch (error) {
+          console.error(("Error fetching weather data:", error));
+          container.style.filter = `saturate(${map(fallbackTemp, -15, 106, 10, 200)}%)`;
+          }
+        })();
+        const wordDesigns = [
+          'Photos/FinalWords/MarkWord-01.png',
+          'Photos/FinalWords/MarkWord-02.png',
+          'Photos/FinalWords/MarkWord-03.png',
+          'Photos/FinalWords/MarkWord-04.png',
+          'Photos/FinalWords/MarkWord-05.png',
+          'Photos/FinalWords/MarkWord-06.png'
+        ];
+        
+        const MImages = {
+          'M1': ['Photos/MPieces/M_-01.png', 'Photos/MPieces/M_-05.png', 'Photos/MPieces/M_-09.png', 'Photos/MPieces/M_-13.png', 'Photos/MPieces/M_-17.png', 'Photos/MPieces/M_-21.png'],
+          'M2': ['Photos/MPieces/M_-02.png', 'Photos/MPieces/M_-06.png', 'Photos/MPieces/M_-10.png', 'Photos/MPieces/M_-14.png', 'Photos/MPieces/M_-18.png', 'Photos/MPieces/M_-22.png'],
+          'M3': ['Photos/MPieces/M_-03.png', 'Photos/MPieces/M_-07.png', 'Photos/MPieces/M_-11.png', 'Photos/MPieces/M_-15.png', 'Photos/MPieces/M_-19.png', 'Photos/MPieces/M_-23.png'],
+          'M4': ['Photos/MPieces/M_-04.png', 'Photos/MPieces/M_-08.png', 'Photos/MPieces/M_-12.png', 'Photos/MPieces/M_-16.png', 'Photos/MPieces/M_-20.png', 'Photos/MPieces/M_-24.png']
+        };
+        
+        const AImages = {
+          'A1': ['Photos/APieces/A_-01.png', 'Photos/APieces/A_-04.png', 'Photos/APieces/A_-07.png', 'Photos/APieces/A_-10.png', 'Photos/APieces/A_-13.png', 'Photos/APieces/A_-16.png'],
+          'A2': ['Photos/APieces/A_-02.png', 'Photos/APieces/A_-05.png', 'Photos/APieces/A_-08.png', 'Photos/APieces/A_-11.png', 'Photos/APieces/A_-14.png', 'Photos/APieces/A_-17.png'],
+          'A3': ['Photos/APieces/A_-03.png', 'Photos/APieces/A_-06.png', 'Photos/APieces/A_-09.png', 'Photos/APieces/A_-12.png', 'Photos/APieces/A_-15.png', 'Photos/APieces/A_-18.png']
+        };
+        
+        const KImages = {
+          'K1': ['Photos/KPieces/K_-01.png', 'Photos/KPieces/K_-04.png', 'Photos/KPieces/K_-07.png', 'Photos/KPieces/K_-10.png', 'Photos/KPieces/K_-13.png', 'Photos/KPieces/K_-16.png'],
+          'K2': ['Photos/KPieces/K_-02.png', 'Photos/KPieces/K_-05.png', 'Photos/KPieces/K_-08.png', 'Photos/KPieces/K_-11.png', 'Photos/KPieces/K_-14.png', 'Photos/KPieces/K_-17.png'],
+          'K3': ['Photos/KPieces/K_-03.png', 'Photos/KPieces/K_-06.png', 'Photos/KPieces/K_-09.png', 'Photos/KPieces/K_-12.png', 'Photos/KPieces/K_-15.png', 'Photos/KPieces/K_-18.png']
+        };
+        
+        const EImages = {
+          'E1': ['Photos/EPieces/E_-01.png', 'Photos/EPieces/E_-05.png', 'Photos/EPieces/E_-09.png', 'Photos/EPieces/E_-13.png', 'Photos/EPieces/E_-17.png', 'Photos/EPieces/E_-21.png'],
+          'E2': ['Photos/EPieces/E_-02.png', 'Photos/EPieces/E_-06.png', 'Photos/EPieces/E_-10.png', 'Photos/EPieces/E_-14.png', 'Photos/EPieces/E_-18.png', 'Photos/EPieces/E_-22.png'],
+          'E3': ['Photos/EPieces/E_-03.png', 'Photos/EPieces/E_-07.png', 'Photos/EPieces/E_-11.png', 'Photos/EPieces/E_-15.png', 'Photos/EPieces/E_-19.png', 'Photos/EPieces/E_-23.png'],
+          'E4': ['Photos/EPieces/E_-04.png', 'Photos/EPieces/E_-08.png', 'Photos/EPieces/E_-12.png', 'Photos/EPieces/E_-16.png', 'Photos/EPieces/E_-20.png', 'Photos/EPieces/E_-24.png']
+        };
+
+      
+        // Function to preload an image
+        function preloadImage(src) {
+          return new Promise((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => resolve(img);
+          });
+        }
+      
+        // Function to show a random word design
+        async function showRandomDesign() {
+          const randomIndex = Math.floor(Math.random() * wordDesigns.length);
+          const selectedSrc = wordDesigns[randomIndex];
+          const img = await preloadImage(selectedSrc);
+          img.classList.add("word-design");
+          document.getElementById('logo').appendChild(img);
+        }
+      
+        const imageSets = { ...MImages, ...AImages, ...KImages, ...EImages };
+
+        function addRandomImageToRandomChild() {
+          const allImageGroups = {
+            M: MImages,
+            A: AImages,
+            K: KImages,
+            E: EImages
+          };
+
+          const letters = Object.keys(allImageGroups);
+          const randomLetter = letters[Math.floor(Math.random() * letters.length)];
+          const letterGroup = allImageGroups[randomLetter];
+          
+          const partKeys = Object.keys(letterGroup);
+          const randomKey = partKeys[Math.floor(Math.random() * partKeys.length)];
+          
+          const imageArray = letterGroup[randomKey];
+          const randomImage = imageArray[Math.floor(Math.random() * imageArray.length)];
+          const targetDiv = document.getElementById(randomKey);
+
+          if (targetDiv) {
+            const img = document.createElement('img');
+            img.src = randomImage;
+            img.alt = '';
+            img.classList.add('letter-piece');
+            targetDiv.appendChild(img);
+          }
+        }
+
+        window.onload = function () {
+        showRandomDesign();
+        };
+
+        function imageInterval() {
+          if (intervalPieces) {
+            addRandomImageToRandomChild();
+            setTimeout(imageInterval, intervalPieces);
+          } else {
+          console.error("intervalPieces is not defined yet.");
+          }
+        }
+      </script> 
+  </body>
+</html>

@@ -1,0 +1,75 @@
+body {
+    height: 100%;
+    margin: 10em;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  
+  }
+
+  #logo > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  img {
+    height: 20em;
+  }
+
+  #logo {
+    display: grid;
+    grid-template-columns: repeat(4, 20em);
+    grid-template-rows: 1fr;
+    grid-column: 1 / span 4;
+    z-index: 0;
+    height: 20em;
+    position: relative
+  }
+
+  #M{
+    position: relative;
+  }
+  #A{
+    position: relative;
+  }
+  #K{
+    position: relative;
+  }
+  #E{
+    position: relative;
+  }
+  .M1 img, .M2 img, .M3 img, .M4 img{
+    z-index: 2;
+    left: 7%;
+    position: absolute;
+  }
+  .A1 img, .A2 img, .A3 img{
+     z-index: 2;
+     position: absolute;
+     left:6%;
+   }
+   .K1 img, .K2 img, .K3 img{
+     z-index: 2;
+     position: absolute;
+     left: -5%;
+   }
+   .E1 img, .E2 img, .E3 img, .E4 img{
+     z-index: 2;
+     left: -19%;
+     position: absolute;
+   }
+ 
+   #colon{
+    z-index: 2;
+    position: absolute;
+    right: -5%;
+
+   }
+  .hidden {
+    display: none;
+  }

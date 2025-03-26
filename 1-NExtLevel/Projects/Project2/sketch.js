@@ -21,7 +21,7 @@ function setup() {
 }
 
 function draw() {
-    background('#fcf5e5');
+    background('#FFFFFF');
 
     // Adjust the fade effect over 1000 frames (~50 seconds for a full fade-in/fade-out cycle)
     let fadeSpeed = 1000; 
