@@ -67,7 +67,7 @@ a:hover {
 }
 #posters{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 5rem);
     margin-right: 2rem;
     grid-auto-flow: row;
 }
