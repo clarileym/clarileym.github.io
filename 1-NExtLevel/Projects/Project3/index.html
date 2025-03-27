@@ -108,7 +108,7 @@
           return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
           }
 
-          const saturation = map(currentTemp, -15, 106, 0, 50);
+          const saturation = map(currentTemp, -15, 106, 0, 20);
           intervalPieces = map(windSpeed, 0, 50, 20000, 5000);
 
           console.log("intervalPieces:", intervalPieces);
