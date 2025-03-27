@@ -1,97 +1,91 @@
 body {
+    background-color: white;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap:30px;
+    margin:20px;
+}
+.leftbox{
     background-image: url(Images/b3.jpg);
     background-repeat: no-repeat;
     background-position: top;
     background-size:cover;
-}
-.container{
-    display: grid;
-    grid-template-columns: 12 1fr;
-    row-gap:20px;
-    margin:20px;
-}
-.leftbox{
-    grid-column-start: 2;
-    grid-column-end: 4;
-    flex-direction: row;
-    flex-wrap: wrap;
+    box-shadow: 0 0 8px 8px white inset;
+    height: 10em;
+    padding-top: 0.5em;
+
+    grid-column: 1 / 4;
     background-color:rgb(100, 22, 27, 0.7);
-    margin-left: 40px;
+}
+.middlebox{
+    padding-left: 20px;
+    grid-column: 4 / 8;
+    height: 100%;
+    /* background-color: rgb(20, 15, 15, 0.6); */
 }
 .rightbox{
-    grid-column-start: 4;
-    grid-column-end: 11;
-    flex-direction: row;
-    flex-wrap: wrap;
+    grid-column: 8 / 13;
+    padding-left: 20px;
     height: 100%;
-    margin-right: 100px;
-    background-color: rgb(20, 15, 15, 0.6);
+    /* background-color: rgb(20, 15, 15, 0.6); */
 }
-a{
-    color:white;
-    font-size: 2em;
-    font-family: "Amatic SC", sans-serif;
-    font-weight: 300;
-    font-style: normal;
+a:link{
     display: flex;
     height: fit-content;
+    color: cadetblue;
+    font-size: 0.7em;
+    font-family: "Poppin", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    text-decoration: none;   
+    line-height: 1.5rem; 
 }
+a:hover {
+    text-decoration: underline;
+  }
 
-p{
-    line-height: 2;
-    letter-spacing: 1px;
-    text-align: justify;
-}
 .title{
-    color: white;
+    /* color:rgb(171, 86, 6); */
+    color:maroon;
     text-align: center;
     font-family: "Amatic SC", sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 5vw;
+    font-size: 4.5rem;
       
 }
 .header{
-    color:rgb(221, 219, 203);
-    font-size: 3em;
+    /* color:rgb(221, 219, 203); */
+    color: white;
+    font-size: 3rem;
     padding-left:20px;
-    padding-right:20px;
     font-family: "Amatic SC", sans-serif;
     font-weight: 700;
     font-style: normal;
 }
-ul{
-    list-style-type: none;
-    width: fit-content;
-    margin-bottom: 7px;
-}
-.sublist ul li{
-    line-height:1;
-    display:inline-block;
-    margin-right:20px;
-    grid-column-start: 4;
-    grid-column-end: 8;
-
-}
-.sublist{
-    line-height: 1px;
-    margin:4px;
+#posters{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-right: 2rem;
+    grid-auto-flow: row;
 }
 .assignment{
-    margin-bottom:1vh;
-    margin-top: 4vh;;
-    font-size: 3em;
+    font-size: 1.5rem;
     list-style-type: none;
     font-family: "Amatic SC", sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: rgb(171, 86, 6);
+    /* color: rgb(171, 86, 6); */
+    color: maroon;
+    padding-bottom: 1rem;
 }
 
 @media (max-width: 768px){
     body { 
         transition: 1500ms;
-        background-image: url(Images/b1.jpg);
+        background-color:white;
         background-repeat: no-repeat;
         background-position: top;
         background-size:cover;
@@ -100,44 +94,37 @@ ul{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        background-color: rgb(150, 197, 176);
+        row-gap:30px;
+
     }
     .leftbox{
         width: 100%;
-        height: 100%;
+        height: 4em;
         text-align: center;
-        background-color:rgb(27, 154, 170);
         align-content: center;
         justify-content: center;
-        margin-left: 0px;
     }
     .rightbox{
-        width: 100%;
+        padding-left: 20px;
         height: 100%;
-        margin-right: 0px;
-        background-color: rgb(150, 197, 176);
+        /* background-color: rgb(20, 15, 15, 0.6); */
     }
+    
     .header{
         color:white;
-        font-size: 35px;
-        padding-left:20px;
-        padding-right:20px;
+        font-size: 2.5rem;
         
     }
     .title{
-        font-size: 3em;
+        font-size: 4rem;
         text-align: center;
-            font-family: "Spicy Rice", serif;
-            font-weight: 400;
-            font-style: normal;
+        font-family: "Amatic SC", serif;
+        font-weight: 700;
+        font-style: normal;
           
     }
-    a{
-        color:white;
-        font-size: 1.5em;
-    }
     .assignment{
-        color:black;
-        font-size: 2.5em;
+        font-size: 1.5rem;
+        padding-bottom: 0.5rem;
     }
 }
