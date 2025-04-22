@@ -72,155 +72,64 @@
   </div>
 
       <script>
-        const body = document.body;
-        const container = document.getElementById('container');
-        let intervalPieces;
-        const fallbackTemp = 30;
-        const fallbackWindSpeed = 5;
+        window.onload = function() {
+    // Function to adjust color by modifying the lightness of the HSL value
+    function adjustColorHsl(hsl, factor) {
+        // Extract the hsl values from the string (e.g., "hsl(360, 100%, 50%)")
+        let result = hsl.match(/\d+/g);
+        let h = parseInt(result[0]);
+        let s = parseInt(result[1]);
+        let l = parseInt(result[2]);
 
-        const url = 'https://open-weather13.p.rapidapi.com/city/new york/EN';
-        const options = {
-          method: 'GET',
-          headers: {
-            'x-rapidapi-key': 'a5f5370ef9mshe0b303f5f8e61c9p1587acjsn1eba347bc235',
-            'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
-          }
-        };
+        // Adjust the lightness by the factor
+        l = Math.min(100, Math.max(0, l + factor)); // Ensure lightness stays between 0 and 100%
 
-        
+        return `hsl(${h}, ${s}%, ${l}%)`;
+    }
 
-        (async () => {
-        try {
-          const response = await fetch(url, options);
-          const result = await response.text();
-          const dataObject = JSON.parse(result);
-          const currentTemp = dataObject.main?.temp ?? fallbackTemp;
-          const windSpeed = dataObject.wind?.speed ?? fallbackWindSpeed;
-          //STEP ONE: FIGURE OUT THE RANGE OF THE NUMBER YOU HAVE
-          console.log(dataObject); //RANGE BETWEEN -15, 106
+    // Get the color of the colorGround div (assuming it's in HSL format)
+    let colorGround = document.querySelector('.colorGround').style.backgroundColor;
+    if (!colorGround) colorGround = 'hsl(0, 0%, 0%)'; // default to black if no background color is set
 
-          //STEP 2: FIGURE OUT THE RANGE OF THE NUMBER YOU WANT
+    // Generate lighter and darker versions of the color
+    let lightColor = adjustColorHsl(colorGround, 20);  // Make the color lighter
+    let darkColor = adjustColorHsl(colorGround, -20);  // Make the color darker
 
-          //BOTTOM RANGE: hsl(209. 100%. 92%)
-          //TOP RANGE: hsl(0, 100%, 50%)
+    // Select all shapes (paths and polygons) in the SVG
+    let shapes = document.querySelectorAll('#a path, #a polygon');
 
-          function map(value, low1, high1, low2, high2) {
-          return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
-          }
+    // Map function to scale the chunk value to a number of selected shapes
+    function map(value, low1, high1, low2, high2) {
+        return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+    }
 
-          const saturation = map(currentTemp, -15, 106, 0, 20);
-          intervalPieces = map(windSpeed, 0, 50, 20000, 5000);
+    // Function to randomly apply a color to a number of shapes based on chunk scale
+    function changeShapeColor() {
+        // Random chunk scale from 1 to 5
+        let chunkScale = Math.floor(Math.random() * 5) + 1;
 
-          console.log("intervalPieces:", intervalPieces);
-          console.log("windSpeed:", windSpeed);
-          console.log("currentTemp:", currentTemp);
-          console.log("saturation Value", saturation);
+        // Scale the chunk value to the number of selected shapes
+        let numSelectedShapes = Math.round(map(chunkScale, 1, 5, 0, 60));  // 60 shapes at chunk scale 5, 0 shapes at chunk scale 1
 
-          container.style.filter = `saturate(${saturation})`;
+        // Shuffle the array of shapes
+        let shuffledShapes = Array.from(shapes);
+        shuffledShapes = shuffledShapes.sort(() => 0.5 - Math.random()); // Shuffle array randomly
 
-          imageInterval();
-          
-        } catch (error) {
-          console.error(("Error fetching weather data:", error));
-          container.style.filter = `saturate(${map(fallbackTemp, -15, 106, 10, 200)}%)`;
-          }
-        })();
-        const wordDesigns = [
-          'Photos/FinalWords/MarkWord-01.png',
-          'Photos/FinalWords/MarkWord-02.png',
-          'Photos/FinalWords/MarkWord-03.png',
-          'Photos/FinalWords/MarkWord-04.png',
-          'Photos/FinalWords/MarkWord-05.png',
-          'Photos/FinalWords/MarkWord-06.png'
-        ];
-        
-        const MImages = {
-          'M1': ['Photos/MPieces/M_-01.png', 'Photos/MPieces/M_-05.png', 'Photos/MPieces/M_-09.png', 'Photos/MPieces/M_-13.png', 'Photos/MPieces/M_-17.png', 'Photos/MPieces/M_-21.png'],
-          'M2': ['Photos/MPieces/M_-02.png', 'Photos/MPieces/M_-06.png', 'Photos/MPieces/M_-10.png', 'Photos/MPieces/M_-14.png', 'Photos/MPieces/M_-18.png', 'Photos/MPieces/M_-22.png'],
-          'M3': ['Photos/MPieces/M_-03.png', 'Photos/MPieces/M_-07.png', 'Photos/MPieces/M_-11.png', 'Photos/MPieces/M_-15.png', 'Photos/MPieces/M_-19.png', 'Photos/MPieces/M_-23.png'],
-          'M4': ['Photos/MPieces/M_-04.png', 'Photos/MPieces/M_-08.png', 'Photos/MPieces/M_-12.png', 'Photos/MPieces/M_-16.png', 'Photos/MPieces/M_-20.png', 'Photos/MPieces/M_-24.png']
-        };
-        
-        const AImages = {
-          'A1': ['Photos/APieces/A_-01.png', 'Photos/APieces/A_-04.png', 'Photos/APieces/A_-07.png', 'Photos/APieces/A_-10.png', 'Photos/APieces/A_-13.png', 'Photos/APieces/A_-16.png'],
-          'A2': ['Photos/APieces/A_-02.png', 'Photos/APieces/A_-05.png', 'Photos/APieces/A_-08.png', 'Photos/APieces/A_-11.png', 'Photos/APieces/A_-14.png', 'Photos/APieces/A_-17.png'],
-          'A3': ['Photos/APieces/A_-03.png', 'Photos/APieces/A_-06.png', 'Photos/APieces/A_-09.png', 'Photos/APieces/A_-12.png', 'Photos/APieces/A_-15.png', 'Photos/APieces/A_-18.png']
-        };
-        
-        const KImages = {
-          'K1': ['Photos/KPieces/K_-01.png', 'Photos/KPieces/K_-04.png', 'Photos/KPieces/K_-07.png', 'Photos/KPieces/K_-10.png', 'Photos/KPieces/K_-13.png', 'Photos/KPieces/K_-16.png'],
-          'K2': ['Photos/KPieces/K_-02.png', 'Photos/KPieces/K_-05.png', 'Photos/KPieces/K_-08.png', 'Photos/KPieces/K_-11.png', 'Photos/KPieces/K_-14.png', 'Photos/KPieces/K_-17.png'],
-          'K3': ['Photos/KPieces/K_-03.png', 'Photos/KPieces/K_-06.png', 'Photos/KPieces/K_-09.png', 'Photos/KPieces/K_-12.png', 'Photos/KPieces/K_-15.png', 'Photos/KPieces/K_-18.png']
-        };
-        
-        const EImages = {
-          'E1': ['Photos/EPieces/E_-01.png', 'Photos/EPieces/E_-05.png', 'Photos/EPieces/E_-09.png', 'Photos/EPieces/E_-13.png', 'Photos/EPieces/E_-17.png', 'Photos/EPieces/E_-21.png'],
-          'E2': ['Photos/EPieces/E_-02.png', 'Photos/EPieces/E_-06.png', 'Photos/EPieces/E_-10.png', 'Photos/EPieces/E_-14.png', 'Photos/EPieces/E_-18.png', 'Photos/EPieces/E_-22.png'],
-          'E3': ['Photos/EPieces/E_-03.png', 'Photos/EPieces/E_-07.png', 'Photos/EPieces/E_-11.png', 'Photos/EPieces/E_-15.png', 'Photos/EPieces/E_-19.png', 'Photos/EPieces/E_-23.png'],
-          'E4': ['Photos/EPieces/E_-04.png', 'Photos/EPieces/E_-08.png', 'Photos/EPieces/E_-12.png', 'Photos/EPieces/E_-16.png', 'Photos/EPieces/E_-20.png', 'Photos/EPieces/E_-24.png']
-        };
-
-      
-        // Function to preload an image
-        function preloadImage(src) {
-          return new Promise((resolve) => {
-            const img = new Image();
-            img.src = src;
-            img.onload = () => resolve(img);
-          });
+        // Select the first 'numSelectedShapes' number of shapes to change their color
+        for (let i = 0; i < numSelectedShapes; i++) {
+            let shape = shuffledShapes[i];
+            if (shape && shape.style.fill !== "none") {  // Only change if shape isn't already transparent
+                let newColor = Math.random() > 0.5 ? lightColor : darkColor; // Randomly choose light or dark color
+                shape.style.fill = newColor;
+                shape.style.fillOpacity = 1; // Set opacity to 100% when color changes
+            }
         }
-      
-        // Function to show a random word design
-        async function showRandomDesign() {
-          const randomIndex = Math.floor(Math.random() * wordDesigns.length);
-          const selectedSrc = wordDesigns[randomIndex];
-          const img = await preloadImage(selectedSrc);
-          img.classList.add("word-design");
-          document.getElementById('logo').appendChild(img);
-        }
-      
-        const imageSets = { ...MImages, ...AImages, ...KImages, ...EImages };
+    }
 
-        function addRandomImageToRandomChild() {
-          const allImageGroups = {
-            M: MImages,
-            A: AImages,
-            K: KImages,
-            E: EImages
-          };
+    // Immediately change shape color on load
+    changeShapeColor();
+}
 
-          const letters = Object.keys(allImageGroups);
-          const randomLetter = letters[Math.floor(Math.random() * letters.length)];
-          const letterGroup = allImageGroups[randomLetter];
-          
-          const partKeys = Object.keys(letterGroup);
-          const randomKey = partKeys[Math.floor(Math.random() * partKeys.length)];
-          
-          const imageArray = letterGroup[randomKey];
-          const randomImage = imageArray[Math.floor(Math.random() * imageArray.length)];
-          const targetDiv = document.getElementById(randomKey);
-
-          if (targetDiv) {
-            const img = document.createElement('img');
-            img.src = randomImage;
-            img.alt = '';
-            img.classList.add('letter-piece');
-            targetDiv.appendChild(img);
-          }
-        }
-
-        window.onload = function () {
-        showRandomDesign();
-        };
-
-        function imageInterval() {
-          if (intervalPieces) {
-            addRandomImageToRandomChild();
-            setTimeout(imageInterval, intervalPieces);
-          } else {
-          console.error("intervalPieces is not defined yet.");
-          }
-        }
       </script> 
   </body>
 </html>

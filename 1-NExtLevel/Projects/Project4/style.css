@@ -1,0 +1,197 @@
+@font-face {
+    font-family: TeenageDreamDemo;
+    font-weight: bold;
+    src: url(Files/TeenageDreamsFont-Demo-Bold.ttf) format("truetype");
+}
+
+
+.container{
+    display:flex;
+    position: relative;
+    background-color:beige;
+    height:41vw;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vw;
+}
+.dropdown{
+    margin: 2vw;
+    margin-top: 4vw;
+}
+
+.colorGround1{
+    /* background-color:darkmagenta; */
+    height: 40vw;
+    width: 100vw;
+    position:absolute;
+    mask-image:
+    radial-gradient(
+        circle at center right,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.3) 20%,
+        rgba(0, 0, 0, 0.7) 35%,
+        black 50%
+    );
+    opacity: 90%;
+}
+
+.colorGround2{
+    /* background-color:darkmagenta; */
+    height:40vw;
+    width: 100vw;
+    position:absolute;
+    mask-image:
+    radial-gradient(
+        circle at bottom left,
+        transparent 10%,
+        rgba(0, 0, 0, 0.2) 30%,
+        rgba(0, 0, 0, 0.6) 40%,
+        black 50%
+    );
+    opacity: 50%;
+}
+.textureGround{
+    position: absolute;
+    height: 40vw;
+    width: 55vw;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    left: 15vw;
+    visibility: hidden;
+}
+
+.labels{
+    display: flex;
+    position: absolute;
+    column-gap: 2vw;
+    width: 95vw;
+    height: 40vw;
+    justify-content: space-between;
+    align-items: center;
+}
+.leftLabels{
+    width: 18vw;
+    visibility: hidden;
+}
+
+.frontLabel{
+    width: 38vw;
+    height: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+.rightLabels{
+    width: 25vw;
+    height: 40vw;
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+}
+
+.titleContainer{
+    position:absolute;
+    top: 3vw;
+}
+#circle {
+    background: transparent;
+    fill-opacity: 80%;
+    stroke-width: 5;
+    width: 36vw;
+  }
+
+.legendBorder{
+    position: absolute;
+    top: 3.5vw;
+    right: 3vw;
+}
+#circle2 {
+    background: transparent;
+    fill-opacity: 80%;
+    stroke-width: 8;
+    width: 20vw;
+    height: 30vw;
+  }
+
+.title{
+    position:absolute;
+    visibility: hidden;
+    width: 27vw;
+    justify-content: center;
+    align-items: flex-start;
+    top: 4vw;
+}
+#smalls{
+    position: absolute;
+}
+
+.g{
+    opacity: 20%;
+}
+
+
+.text{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 17vw;
+    flex-direction: column;
+    width: 16vw;
+    height: 9vw;
+    justify-content: center;
+}
+
+#flavor{
+    font-family: TeenageDreamDemo;
+    font-size: 2.4vw;
+    color: white;
+    text-align: center;
+    line-height: 2.7vw;
+    margin: 0;
+}
+
+#icecream{
+    font-family: TeenageDreamDemo;
+    font-size: 1vw;
+    color: white;
+    text-align: center;
+    line-height: 0vw;
+}
+
+.description{
+    position: absolute;
+    bottom: 3vw;
+    width: 20vw;
+    font-family: TeenageDreamDemo;
+    font-size: 0.9vw;
+    line-height: 1.2vw;
+    text-align: center;
+    color:white;
+
+}
+.legendText{
+    font-family: TeenageDreamDemo;
+    fill:black;
+    font-size: 1.2vw;
+    text-align: right;
+}
+#r2{
+    mask-image:
+    linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.7) 30%,
+        black 60%
+    );
+}
+#r{
+    mask-image:
+    linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.7) 30%,
+        black 60%
+    );
+}
+
