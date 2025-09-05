@@ -54,11 +54,11 @@
 .textureGround{
     position: absolute;
     height: 40vw;
-    width: 55vw;
+    width: 100vw;
     overflow: hidden;
     align-items: center;
     display: flex;
-    left: 15vw;
+    /* left: 15vw; */
     visibility: hidden;
 }
 
@@ -165,8 +165,8 @@
     bottom: 3vw;
     width: 20vw;
     font-family: TeenageDreamDemo;
-    font-size: 0.9vw;
-    line-height: 1.2vw;
+    font-size: 1.1vw;
+    line-height: 1.5vw;
     text-align: center;
     color:white;
 
