@@ -2993,6 +2993,8 @@ function fetchFlavors() {
             });
 
             select.addEventListener("change", (e) => {
+                
+                
                 const selectedFlavor = e.target.value;
 
                 flavorName.textContent = ""; // Reset
@@ -3013,6 +3015,23 @@ function fetchFlavors() {
                 fetchHSL(selectedFlavor);
                 console.log(`selectedflavor: ${selectedFlavor}`);
             });
+
+            // Set default selection after populating dropdown
+            if (data.length > 0) {
+                const defaultFlavor = data[0]["Flavors"]; // picks the first flavor
+                select.value = defaultFlavor;
+
+                // Manually trigger all the display logic
+                flavorName.textContent = defaultFlavor;
+                titleDis.style.visibility = `visible`;
+                icecreamEl.style.visibility = `visible`;
+                nutriLabel.style.visibility = `visible`;
+                frontLabel.style.visibility = `visible`;
+                textureGround.style.visibility = `visible`;
+                legendLabel.style.visibility = `visible`;
+
+                fetchHSL(defaultFlavor);
+            };
 
 
         })
