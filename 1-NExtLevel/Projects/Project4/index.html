@@ -2984,10 +2984,10 @@ function fetchFlavors() {
             sheetData = data;
 
             data.forEach(row => {
-                if (row["Flavors"]) {
+                if (row["What is the name of your new flavor?"]) {
                     const option = document.createElement("option");
-                    option.value = row["Flavors"];
-                    option.textContent = row["Flavors"];
+                    option.value = row["What is the name of your new flavor?"];
+                    option.textContent = row["What is the name of your new flavor?"];
                     select.appendChild(option);
                 }
             });
@@ -3018,7 +3018,7 @@ function fetchFlavors() {
 
             // Set default selection after populating dropdown
             if (data.length > 0) {
-                const defaultFlavor = data[0]["Flavors"]; // picks the first flavor
+                const defaultFlavor = data[0]["What is the name of your new flavor?"]; // picks the first flavor
                 select.value = defaultFlavor;
 
                 // Manually trigger all the display logic
@@ -3042,11 +3042,11 @@ function fetchFlavors() {
 
 // Main HSL logic
 function fetchHSL(selectedFlavor) {
-    row = sheetData.find(row => row["Flavors"] === selectedFlavor);
+    row = sheetData.find(row => row["What is the name of your new flavor?"] === selectedFlavor);
 
     if (row) {
-        const flavorProfile1 = row["Flavors Profile 1"];
-        const flavorProfile2 = row["Flavors Profile 2"];
+        const flavorProfile1 = row["What is the 1st main component of this new flavor?"];
+        const flavorProfile2 = row["What is the 2nd main component of this new flavor?"];
 
         const flavor1 = document.querySelector("text#flavor1");
         const flavor2 = document.querySelector("text#flavor2");
@@ -3058,7 +3058,7 @@ function fetchHSL(selectedFlavor) {
         flavor1.textContent = flavorProfile1;
         flavor2.textContent = flavorProfile2;
 
-        descEl.textContent = row["Description"] || "";
+        descEl.textContent = row["What description do you want to add for your new flavor?"] || "";
         baseHSL = hslColorOptions[flavorProfile1];
         topHSL = hslColorOptions[flavorProfile2];
 
@@ -3090,7 +3090,7 @@ function fetchHSL(selectedFlavor) {
                 console.log(`darkColor: ${darkColor}`);
 
                 changeShapeColor(row);
-                drawWigglyCircle(row["Swirl"] === "Yes" ? 20 : 0);
+                drawWigglyCircle(row["Is there a flavor swirl?"] === "Yes" ? 20 : 0);
             } else {
                 console.error("HSL format mismatch");
             }
@@ -3199,17 +3199,16 @@ function changeShapeColor(row) {
     });
 
     //How many chunks are colored in
-    chunkScale = row["Chunkiness"];
+    chunkScale = row["On a scale of 1 - 3, how chunky is this new flavor?"];
     const numSelectedBigShapes = Math.round(map(chunkScale, 1, 3, 0, 1000));
     const numSelectedSmallShapes = Math.round(map(chunkScale, 1, 3, 0, 50));
    
     optionChunky.textContent = ""; 
-    optionChunky.textContent = (row["Chunkiness"] === "2" || row["Chunkiness"] === "3")
+    optionChunky.textContent = (row["On a scale of 1 - 3, how chunky is this new flavor?"] === "2" || row["On a scale of 1 - 3, how chunky is this new flavor?"] === "3")
         ? `Chunky: ${chunkScale - 1}/2`
         : `No Chunks`;
     optionSwirl.textContent = "";
-    optionSwirl.textContent = (row["Swirl"] === "Yes" ? `Swirls` : `No Swirls`);
-
+    optionSwirl.textContent = (row["Is there a flavor swirl?"] === "Yes" ? `Swirls` : `No Swirls`);
     
     //Randomize which shapes are colored in
     const shuffledBigShapes = shuffleArray(Array.from(bigShapes));
